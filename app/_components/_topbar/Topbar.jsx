@@ -12,7 +12,7 @@ import { CgMail } from "react-icons/cg";
 const Topbar = () => {
   return (
     <div className="bg-p-green py-[15px]">
-      <div className="container mx-auto px-[10px]">
+      <div className="max-w-container mx-auto px-[10px]">
         <div className="flex justify-between items-center ">
           <div className="flex gap-x-2 md:gap-x-4">
             <Link href={"/"}><FaFacebookSquare className="text-[14px] md:text-[30px] text-white" /></Link>

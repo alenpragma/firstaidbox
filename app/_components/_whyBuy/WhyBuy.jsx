@@ -46,11 +46,11 @@ const WhyBuy = () => {
                 {
                     WhyBuyData.map((item ,index)=>(
 
-                        <div key={index} className="w-full md:w-[49%]  flex flex-col gap-y-5 items-center rounded-xl justify-center border-[3px] border-p-green">
-                              <img src={item.icon} className='w-fill h-auto ' />
-                              <div className="p-5">
-                              <h3 className='font-semibold text-[30px] text-center mb-4'>{item.heading}</h3>
-                              <h4 className='font-sermibold text-center text-[20px]'>{item.description}</h4>
+                        <div key={index} className={`${index === 0 && "bg-p-green text-white" } ${index === 3 && "bg-lime" } ${index === 4 && "bg-p-blue text-white border-p-blue" }  w-full md:w-[48.9%]  flex flex-col gap-y-5 items-center rounded-xl justify-center border-[3px] border-lime`}>
+                              <img src={item.icon} className='w-full h-auto ' />
+                              <div className="p-10">
+                              <h3 className='font-semibold text-[35px] text-center mb-4'>{item.heading}</h3>
+                              <h4 className='font-sermibold text-center text-[25px]'>{item.description}</h4>
                               </div>
                         </div>
                     ))

@@ -10,10 +10,11 @@ module.exports = {
       colors: {
         "p-green": "#3FD049",
         "p-ash":"#505050",
-        "lime":"#F0FFD7"
+        "lime":"#F0FFD7",
+        "p-blue":"#1967D2"
       },
       maxWidth: {
-        container: "1280px",
+        container: "1200px",
       },
     },
   },

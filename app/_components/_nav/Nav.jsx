@@ -7,7 +7,7 @@ import gmlogo from "../../_svg/gmlogo.svg"
 const Nav = () => {
     return (
         <div className="border-b">
-<div className='container mx-auto py-[15px] px-[10px] flex justify-between items-center '>
+<div className='max-w-container mx-auto py-[15px] px-[10px] flex justify-between items-center '>
              <div className="">
                 <Image className='w-[100px] md:w-[250px]' src={gmlogo} alt='logo'/>
              </div>

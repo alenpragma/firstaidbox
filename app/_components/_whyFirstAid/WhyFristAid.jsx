@@ -46,10 +46,10 @@ const WhyFristAid = () => {
                 {
                     whyFirstAidData.map((item ,index)=>(
 
-                        <div key={index} className="w-full md:w-[49%] p-5 flex flex-col gap-y-5 items-center rounded-xl justify-center border-[3px] border-p-green">
+                        <div key={index} className="w-full md:w-[48.9%] p-10 flex flex-col gap-y-5 items-center rounded-xl justify-center border-[3px] border-p-green">
                               <img src={item.icon} className='w-[100px] h-auto' />
-                              <h3 className='font-semibold text-[30px] text-center'>{item.heading}</h3>
-                              <h4 className='font-sermibold text-center text-[20px]'>{item.description}</h4>
+                              <h3 className='font-semibold text-[35px] text-center'>{item.heading}</h3>
+                              <h4 className='font-sermibold text-center text-[25px]'>{item.description}</h4>
                         </div>
                     ))
                 }
