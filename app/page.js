@@ -4,18 +4,22 @@ import Nav from './_components/_nav/Nav'
 import Banner from './_components/_banner/Banner'
 import WhyFristAid from './_components/_whyFirstAid/WhyFristAid'
 import WhyBuy from './_components/_whyBuy/WhyBuy'
+import Order from './_components/_order/Order'
+import FirstAidBox from './_components/_firstAdiBox/FirstAidBox'
 
 
 const page = () => {
   return (
     <div>
       <div className="">
-        <Topbar/>
-        <Nav/>
+        <Topbar />
+        <Nav />
       </div>
-      <Banner/>
-      <WhyFristAid/>
-      <WhyBuy/>
+      <Banner />
+      <WhyFristAid />
+      <WhyBuy />
+      <Order />
+      <FirstAidBox />
     </div>
   )
 }

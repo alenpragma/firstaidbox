@@ -39,7 +39,7 @@ const WhyBuy = () => {
    ] 
 
     return (
-        <div className="py-[50px] md:py-[90px] ">
+        <div className="py-[50px] md:py-[90px]">
          <Container>
             <h1 className='text-[40px] md:text-[60px] lg:text-[80px]  font-bold pb-[20px] md:pb-[40px] text-center'>আমাদের বক্সটি কেন কিনবেন?</h1>
             <div className="flex flex-col md:flex-row gap-y-4 md:gap-6 justify-between flex-wrap">
