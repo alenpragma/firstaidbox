@@ -66,22 +66,22 @@ const FirstAidBox = () => {
               <div className="w-full bg-[#FFF] rounded flex justify-between items-center relative p-10">
                 <h2 className="text-[#1E1E1E] text-[24px]">{item.title}</h2>
                 <Image
-                  className="w-[100px] h-[100px] rounded-full -mr-10 absolute -right-3"
+                  className="w-[100px] h-[100px] rounded-full  absolute -right-10"
                   src={item.img}
                   alt=""
                 />
               </div>
             ))}
           </div>
-          <div className="w-[20%]">
+          <div className="w-[30%]">
             <Image className="w-full" src={img6} alt="" />
           </div>
           <div className="flex flex-col gap-5 w-[30%]">
             {firstAidKitName.slice(5, 10).map((item) => (
               <div className="w-full bg-[#FFF] rounded flex flex-row-reverse justify-between items-center relative p-10">
-                <h2 className="text-[#1E1E1E] text-[24px]">{item.title}</h2>
+                <h2 className="text-[#1E1E1E] text-[24px] w-[80%]">{item.title}</h2>
                 <Image
-                  className="w-[100px] h-[100px] rounded-full -mr-10 absolute -left-10"
+                  className="w-[100px] h-[100px] rounded-full absolute -left-10"
                   src={item.img}
                   alt=""
                 />

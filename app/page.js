@@ -6,6 +6,7 @@ import WhyFristAid from './_components/_whyFirstAid/WhyFristAid'
 import WhyBuy from './_components/_whyBuy/WhyBuy'
 import Order from './_components/_order/Order'
 import FirstAidBox from './_components/_firstAdiBox/FirstAidBox'
+import ProductDetails from './_components/_productDetails/ProductDetails'
 
 
 const page = () => {
@@ -20,6 +21,7 @@ const page = () => {
       <WhyBuy />
       <Order />
       <FirstAidBox />
+      <ProductDetails />
     </div>
   )
 }
