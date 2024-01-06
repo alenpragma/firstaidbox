@@ -35,7 +35,7 @@ const firstAidKitName = [
   },
   {
     img: img3,
-    title: "১ বক্স ফিব্রিন ট্যাবলেট",
+    title: "১ ফিব্রিন ট্যাবলেট",
   },
   {
     img: img3,
@@ -60,28 +60,28 @@ const FirstAidBox = () => {
         <h2 className="text-[#1E1E1E] text-7xl font-bold text-center">
           ফাস্ট এইড বাক্সটিতে যা যা পাচ্ছেন
         </h2>
-        <div className="flex justify-between items-center w-full">
-          <div className="flex flex-col gap-5 w-[30%]">
+        <div className="lg:flex justify-between items-center w-full relative">
+          <div className="flex flex-col gap-5 lg:w-[30%] w-[90%]">
             {firstAidKitName.slice(0, 5).map((item) => (
-              <div className="w-full bg-[#FFF] rounded flex justify-between items-center relative p-10">
+              <div className="w-full bg-[#FFF] rounded flex justify-between items-center relative lg:p-10 md:p-8 p-5">
                 <h2 className="text-[#1E1E1E] text-[24px]">{item.title}</h2>
                 <Image
-                  className="w-[100px] h-[100px] rounded-full  absolute -right-10"
+                  className="lg:w-[100px] lg:h-[100px] w-[70px] h-[70px] rounded-full  absolute -right-10"
                   src={item.img}
                   alt=""
                 />
               </div>
             ))}
           </div>
-          <div className="w-[30%]">
+          <div className="lg:w-[30%] w-full">
             <Image className="w-full" src={img6} alt="" />
           </div>
-          <div className="flex flex-col gap-5 w-[30%]">
+          <div className="flex flex-col items-center gap-5 lg:w-[30%] w-[100%] relative">
             {firstAidKitName.slice(5, 10).map((item) => (
-              <div className="w-full bg-[#FFF] rounded flex flex-row-reverse justify-between items-center relative p-10">
+              <div className="w-full bg-[#FFF] rounded flex flex-row-reverse justify-between items-center lg:p-10 md:p-8 p-5">
                 <h2 className="text-[#1E1E1E] text-[24px] w-[80%]">{item.title}</h2>
                 <Image
-                  className="w-[100px] h-[100px] rounded-full absolute -left-10"
+                  className="lg:w-[100px] lg:h-[100px] w-[70px] h-[70px] rounded-full absolute -left-10"
                   src={item.img}
                   alt=""
                 />

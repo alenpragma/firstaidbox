@@ -2,7 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-
-html,body{
+html,
+body {
   overflow-x: hidden !important;
 }
+
+/* .center-div::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    z-index: 1;
+    clip-path: polygon(77% 0, 100% 0, 100% 100%, 36% 100%);
+} */
+
+.center-div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  clip-path: polygon(0 0, 15% 0, 27% 100%, 0 100%);
+  background-color: green;
+  border: 10px solid blue; /* Add this line */
+  box-sizing: border-box; /* Add this line to include border in the box size */
+}
+
+
+/* .sub-div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 20px;
+  bottom: 0;
+  left: 0px;
+  z-index: 1;
+  clip-path: polygon(0 0, 17% 0, 29% 100%, 0 100%);
+  background-color: white;
+} */

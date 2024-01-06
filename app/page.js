@@ -7,6 +7,10 @@ import WhyBuy from './_components/_whyBuy/WhyBuy'
 import Order from './_components/_order/Order'
 import FirstAidBox from './_components/_firstAdiBox/FirstAidBox'
 import ProductDetails from './_components/_productDetails/ProductDetails'
+import Faq from './_components/_faq/Faq'
+import CheckOut from './_components/_checkOutPage/CheckOut'
+import Footer from './_components/_footer/Footer'
+import Email from './_components/_email/Email'
 
 
 const page = () => {
@@ -22,6 +26,10 @@ const page = () => {
       <Order />
       <FirstAidBox />
       <ProductDetails />
+      <CheckOut />
+      <Faq />
+      <Email />
+      <Footer />
     </div>
   )
 }
