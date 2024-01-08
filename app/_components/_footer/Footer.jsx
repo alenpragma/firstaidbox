@@ -10,7 +10,7 @@ import { FaLocationDot } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div className="pt-[50px] md:pt-[90px] bg-[#EAEAEA]">
+    <div className="bg-[#EAEAEA]">
       <Container>
         <div className="lg:flex justify-between">
           <div className="w-[35%] flex flex-col justify-between gap-8 bg-[#FFF] lg:p-14 md:p-8 p-3 rounded-md">
@@ -23,7 +23,7 @@ const Footer = () => {
               Shop Now
             </button>
           </div>
-          <div className="w-[70%] flex justify-between gap-5 relative bg-[#EAEAEA] border-l-8 border-[#2ACB35] lg:p-14 md:p-8 p-3 border-b-2">
+          <div className="w-[70%] flex justify-between gap-5 relative bg-[#EAEAEA] border-l-[16px] border-[#2ACB35] lg:p-14 md:p-8 p-3 border-b-2">
             <div className="flex-1">
               <h2 className="text-[18px] font-semibold mb-5">
                 আমাদের মেম্বারশিপ

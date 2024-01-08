@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Container from "../container/Container";
+import { IoIosArrowDown } from "react-icons/io";
 
 const Faq = () => {
   const faqData = [
@@ -55,13 +56,23 @@ const Faq = () => {
               key={index}
               className="bg-white p-4 rounded border border-[#2ACB35] m-3 duration-500"
             >
-              <h3 className="text-[#1E1E1E] text-[20px] font-bold">
-                <span
+              <h3
+                className="text-[#1E1E1E] text-[20px] font-bold flex justify-between"
+                onClick={() => toggleAnswer(index, 1)}
+              >
+                {/* <span
                   onClick={() => toggleAnswer(index, 1)}
                   className="cursor-pointer select-none"
-                >
-                  {item.question}
-                </span>
+                > */}
+                {item.question}
+                {/* </span> */}
+
+                <IoIosArrowDown
+                    className={`text-[20px] transform ${expandedIndex === index ? 'rotate-180 duration-700' : 'rotate-0 duration-700'}`}
+                  />
+                {/* <span>
+                  <IoIosArrowDown className="text-[20px]"/>
+                </span> */}
               </h3>
               {expandedIndex === index && <p>{item.answer}</p>}
             </div>

@@ -55,12 +55,14 @@ const ProductDetails = () => {
           <div className="mt-5 w-full h-full">
             {productDetails.slice(2).map((item) => (
               <div className="p-[35px] bg-[#FFF]  lg:flex  justify-between items-center gap-5 rounded-md">
-                <div className="lg:w-[25%] w-[206px] bg-[#2ACB35] p-5 rounded-b-[50px] h-[266px] flex item-center justify-center">
-                  <img
-                    className="w-full rounded-b-[45px] h-full"
-                    src={item.image}
-                    alt=""
-                  />
+                <div className="lg:w-[25%] w-full flex items-center justify-center">
+                  <div className="w-[206px] bg-[#2ACB35] p-5 rounded-b-[50px] h-[266px] ">
+                    <img
+                      className="w-full rounded-b-[45px] h-full"
+                      src={item.image}
+                      alt=""
+                    />
+                  </div>
                 </div>
                 <div className="lg:w-[70%] flex flex-col gap-5 lg:mt-0 mt-5">
                   <h2 className="text-[#1E1E1E] text-[32px] font-semibold text-start">

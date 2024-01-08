@@ -93,8 +93,8 @@ const CheckOut = () => {
                 <h2 className="text-[#1D1D1D] text-[24px] font-bold mb-3">
                   Shopping Cart
                 </h2>
-                <div className="flex justify-between items-center bg-[#FFF] p-3 rounded text-center shadow">
-                  <div className="flex-1">
+                <div className="flex justify-center items-center bg-[#FFF] p-3 rounded text-center shadow">
+                  <div className="">
                     <Image
                       className="w-[85px] h-[85px]"
                       src={firstairimage}
