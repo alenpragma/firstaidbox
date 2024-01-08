@@ -14,14 +14,16 @@ const Footer = () => {
       <Container>
         <div className="lg:flex justify-between">
           <div className="lg:w-[35%] w-full flex flex-col justify-between gap-8 bg-[#FFF] lg:p-14 md:p-8 p-3 rounded-md">
-            <Image src={banner} alt="" />
+            <Image className="w-[52px]" src={banner} alt="" />
             <p>
               ফাস্ট এইড বাক্সটির কোনো পন্য আপনার প্রয়জন হলে আমাদের শপ থেকে নিতে
               পারেন
             </p>
-            <button className="px-5 py-3 bg-[#2ACB35] rounded-md text-[#FFF] w-[220px] font-semibold text-[24px]">
-              Shop Now
-            </button>
+            <div className="lg:flex-none flex justify-center items-center w-full">
+              <button className="px-5 py-3 bg-[#2ACB35] rounded-md text-[#FFF] w-[220px] font-semibold text-[24px]">
+                Shop Now
+              </button>
+            </div>
           </div>
           <div className="lg:w-[70%] md:w-full w-full lg:flex justify-between gap-5 relative bg-[#EAEAEA] lg:border-l-[16px] border-l-0 border-[#2ACB35] lg:p-14 md:p-8 p-3 border-b-2">
             <div className="lg:flex-1 lg:mt-0 mt-5">
@@ -38,10 +40,18 @@ const Footer = () => {
                 গুরুত্ব পূর্ণ লিঙ্ক সমূহ
               </h2>
               <div className="flex flex-col gap-4">
-                <p className="hover:text-[#2ACB35] duration-300 cursor-pointer">Terms & Condition</p>
-                <p className="hover:text-[#2ACB35] duration-300 cursor-pointer">Privacy Policy</p>
-                <p className="hover:text-[#2ACB35] duration-300 cursor-pointer">Refund Policy</p>
-                <p className="hover:text-[#2ACB35] duration-300 cursor-pointer">Book Apointment</p>
+                <p className="hover:text-[#2ACB35] duration-300 cursor-pointer">
+                  Terms & Condition
+                </p>
+                <p className="hover:text-[#2ACB35] duration-300 cursor-pointer">
+                  Privacy Policy
+                </p>
+                <p className="hover:text-[#2ACB35] duration-300 cursor-pointer">
+                  Refund Policy
+                </p>
+                <p className="hover:text-[#2ACB35] duration-300 cursor-pointer">
+                  Book Apointment
+                </p>
               </div>
             </div>
             <div className="lg:flex-1 lg:mt-0 mt-5">
@@ -78,13 +88,13 @@ const Footer = () => {
             <h2>Mohila Collage Road, Khagrachari-Sadar</h2>
           </div>
         </div>
-       
       </Container>
       <div className="text-center font-semibold bg-[#777] py-10">
-          <p className="text-[14px] text-[#fff]">all Right Reserved Good Morning Aid</p>
-        </div>
+        <p className="text-[14px] text-[#fff]">
+          all Right Reserved Good Morning Aid
+        </p>
+      </div>
     </div>
-
   );
 };
 
