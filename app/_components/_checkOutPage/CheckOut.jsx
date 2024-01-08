@@ -10,9 +10,8 @@ const CheckOut = () => {
   return (
     <div className="py-[50px] md:py-[90px] bg-[#E5E5E5]">
       <Container>
-        <div className="">
           <div>
-            <h2 className="lg:text-[#1D1D1D] text-[64px] font-bold mb-5">
+            <h2 className="lg:text-[#1D1D1D] lg:text-7xl md:text-5xl text-3xl mb-8 font-bold">
               Checkout Page
             </h2>
           </div>
@@ -176,7 +175,6 @@ const CheckOut = () => {
               </div>
             </div>
           </div>
-        </div>
       </Container>
     </div>
   );
