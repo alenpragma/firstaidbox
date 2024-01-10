@@ -19,7 +19,7 @@ const Footer = () => {
               ফাস্ট এইড বাক্সটির কোনো পন্য আপনার প্রয়জন হলে আমাদের শপ থেকে নিতে
               পারেন
             </p>
-            <div className="lg:flex-none flex justify-center items-center w-full">
+            <div className="flex lg:justify-start justify-center items-center w-full">
               <button className="px-5 py-3 bg-[#2ACB35] rounded-md text-[#FFF] w-[220px] font-semibold text-[24px]">
                 Shop Now
               </button>
