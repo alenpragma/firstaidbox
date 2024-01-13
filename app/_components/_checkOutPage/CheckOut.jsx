@@ -104,9 +104,9 @@ const CheckOut = () => {
                     <p>Good Morning First Aid Box</p>
                   </div>
                   <div className="flex-1 flex justify-around items-center bg-[#E5E5E5] rounded p-2">
-                    <span className="font-semibold text-[27px]">+</span>
+                    <span className="font-semibold text-[27px] cursor-pointer">+</span>
                     <span className="font-semibold text-[27px]">1</span>
-                    <span className="font-semibold text-[27px]">-</span>
+                    <span className="font-semibold text-[27px] cursor-pointer">-</span>
                   </div>
                   <div className="flex-1 font-semibold text-[27px]">100 tk</div>
                 </div>

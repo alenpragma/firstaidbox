@@ -21,13 +21,19 @@ const Faq = () => {
           <div className="lg:absolute w-full">
             <div className="flex px-3 flex-col lg:flex-row justify-center gap-x-3 mx-auto mt-5 mb-10">
               <div className="flex-1 w-full">
-                <div className="bg-white p-4 rounded border border-[#2ACB35] m-3 duration-1000">
+                <div className="bg-white p-4 rounded border border-[#2ACB35] m-3">
                   <h3
-                    className="text-[#1E1E1E] text-[20px] font-bold flex justify-between"
+                    className="text-[#1E1E1E] text-[20px] font-bold flex justify-between cursor-pointer"
                     onClick={() => toggleAccordion(1)}
                   >
                     ফার্স্ট এইড বক্স কি?
-                    <IoIosArrowDown className={`${activeIndex === 1 ? "rotate-180 duration-500" : "rotate-0 duration-500"} text-3xl`}/>
+                    <IoIosArrowDown
+                      className={`${
+                        activeIndex === 1
+                          ? "rotate-180 duration-500"
+                          : "rotate-0 duration-500"
+                      } text-3xl`}
+                    />
                   </h3>
                   {activeIndex === 1 && (
                     <p>
@@ -38,25 +44,37 @@ const Faq = () => {
                     </p>
                   )}
                 </div>
-                <div className="bg-white p-4 rounded border border-[#2ACB35] m-3 duration-1000">
+                <div className="bg-white p-4 rounded border border-[#2ACB35] m-3 cursor-pointer">
                   <h3
                     className="text-[#1E1E1E] text-[20px] font-bold flex justify-between"
                     onClick={() => toggleAccordion(2)}
                   >
                     কতদিনের মধ্যে ডেলিভারী দেওয়া হয়?
-                    <IoIosArrowDown className={`${activeIndex === 2 ? "rotate-180 duration-500" : "rotate-0 duration-500"} text-3xl`}/>
+                    <IoIosArrowDown
+                      className={`${
+                        activeIndex === 2
+                          ? "rotate-180 duration-500"
+                          : "rotate-0 duration-500"
+                      } text-3xl`}
+                    />
                   </h3>
                   {activeIndex === 2 && (
                     <p>সাধারণত ৪ থেকে ৫ দিনের মধ্যে ডেলিভারী দেওয়া হয়।</p>
                   )}
                 </div>
-                <div className="bg-white p-4 rounded border border-[#2ACB35] m-3 duration-1000">
+                <div className="bg-white p-4 rounded border border-[#2ACB35] m-3 cursor-pointer">
                   <h3
                     className="text-[#1E1E1E] text-[20px] font-bold flex justify-between"
                     onClick={() => toggleAccordion(3)}
                   >
                     ফাস্ট এইড বক্সের’ উপকরণগুলো শেষ হয়ে গেলে করণীয় কি?
-                    <IoIosArrowDown className={`${activeIndex === 3 ? "rotate-180 duration-500" : "rotate-0 duration-500"} text-3xl`}/>
+                    <IoIosArrowDown
+                      className={`${
+                        activeIndex === 3
+                          ? "rotate-180 duration-500"
+                          : "rotate-0 duration-500"
+                      } text-3xl`}
+                    />
                   </h3>
                   {activeIndex === 3 && (
                     <p>
@@ -68,13 +86,19 @@ const Faq = () => {
                 </div>
               </div>
               <div className="flex-1 w-full">
-                <div className="bg-white p-4 rounded border border-[#2ACB35] m-3 duration-1000">
+                <div className="bg-white p-4 rounded border border-[#2ACB35] m-3 cursor-pointer">
                   <h3
                     className="text-[#1E1E1E] text-[20px] font-bold flex justify-between"
                     onClick={() => toggleAccordion(4)}
                   >
                     কিভাবে মূল্য পরিশোধ করতে হবে?
-                    <IoIosArrowDown className={`${activeIndex === 4 ? "rotate-180 duration-500" : "rotate-0 duration-500"} text-3xl`}/>
+                    <IoIosArrowDown
+                      className={`${
+                        activeIndex === 4
+                          ? "rotate-180 duration-500"
+                          : "rotate-0 duration-500"
+                      } text-3xl`}
+                    />
                   </h3>
                   {activeIndex === 4 && (
                     <p>
@@ -84,13 +108,19 @@ const Faq = () => {
                     </p>
                   )}
                 </div>
-                <div className="bg-white p-4 rounded border border-[#2ACB35] m-3 duration-1000">
+                <div className="bg-white p-4 rounded border border-[#2ACB35] m-3 cursor-pointer">
                   <h3
                     className="text-[#1E1E1E] text-[20px] font-bold flex justify-between"
                     onClick={() => toggleAccordion(5)}
                   >
                     কিভাবে অর্ডার করতে হবে?
-                    <IoIosArrowDown className={`${activeIndex === 5 ? "rotate-180 duration-500" : "rotate-0 duration-500"} text-3xl`}/>
+                    <IoIosArrowDown
+                      className={`${
+                        activeIndex === 5
+                          ? "rotate-180 duration-500"
+                          : "rotate-0 duration-500"
+                      } text-3xl`}
+                    />
                   </h3>
                   {activeIndex === 5 && (
                     <p>
@@ -101,13 +131,19 @@ const Faq = () => {
                     </p>
                   )}
                 </div>
-                <div className="bg-white p-4 rounded border border-[#2ACB35] m-3 duration-1000">
+                <div className="bg-white p-4 rounded border border-[#2ACB35] m-3 cursor-pointer">
                   <h3
                     className="text-[#1E1E1E] text-[20px] font-bold flex justify-between"
                     onClick={() => toggleAccordion(6)}
                   >
                     ডেলিভারী চার্জ কি প্রযোজ্য ?
-                    <IoIosArrowDown className={`${activeIndex === 6 ? "rotate-180 duration-500" : "rotate-0 duration-500"} text-3xl`}/>
+                    <IoIosArrowDown
+                      className={`${
+                        activeIndex === 6
+                          ? "rotate-180 duration-500"
+                          : "rotate-0 duration-500"
+                      } text-3xl`}
+                    />
                   </h3>
                   {activeIndex === 6 && (
                     <p>
@@ -225,7 +261,7 @@ export default Faq;
 //             {faqData.map((item, index) => (
 //               <div
 //                 key={index}
-//                 className="bg-white p-4 rounded border border-[#2ACB35] m-3 duration-1000"
+//                 className="bg-white p-4 rounded border border-[#2ACB35] m-3"
 //               >
 //                 <h3
 //                   className="text-[#1E1E1E] text-[20px] font-bold flex justify-between"
