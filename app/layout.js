@@ -1,19 +1,7 @@
-import {  Tiro_Bangla } from 'next/font/google'
+import { Tiro_Bangla } from 'next/font/google'
 import './globals.css'
-// import lipimollika from '../app/fonts/LipiMollika/lipimollika.ttf'
 
-
-
-
-
-// const fontSize = 16;
-// const fontLoader = new fontLoader();
-// fontLoader.loadFont(`${lipimollika}`, { size: fontSize });
-
-const tiro =  Tiro_Bangla({ subsets: ['latin'] ,weight:"400"})
-
-
-
+const tiro = Tiro_Bangla({ subsets: ['latin'], weight: "400" })
 
 export const metadata = {
   title: 'Good Morning Aid',
@@ -22,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-     <head>   <link rel="icon" href="https://i.postimg.cc/PJ8b3Msv/gmfav.png" /></head>
+      <head>   <link rel="icon" href="https://i.postimg.cc/PJ8b3Msv/gmfav.png" /></head>
       <body className={tiro.className}>{children}</body>
     </html>
   )
