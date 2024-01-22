@@ -23,30 +23,14 @@ const ProductDetails = () => {
                     {item.title}
                   </h2>
                   <ul className="flex flex-col gap-3">
-                    <li className="flex items-baseline gap-3">
-                      <div className="w-[20px]">
-                        <TiTick className="text-green-500 text-[20px]" />
-                      </div>
-                      <p className="text-[24px] text-[#454545]">
-                        {item.details.detail1}
-                      </p>
-                    </li>
-                    <li className="flex items-baseline gap-3">
-                      <div className="w-[20px]">
-                        <TiTick className="text-green-500 text-[20px]" />
-                      </div>
-                      <p className="text-[24px] text-[#454545]">
-                        {item.details.detail2}
-                      </p>
-                    </li>
-                    <li className="flex items-baseline gap-3">
-                      <div className="w-[20px]">
-                        <TiTick className="text-green-500 text-[20px]" />
-                      </div>
-                      <p className="text-[24px] text-[#454545]">
-                        {item.details.detail3}
-                      </p>
-                    </li>
+                  {item.details.map((data) => (
+                      <li className="flex items-baseline gap-3">
+                        <div className="w-[20px]">
+                          <TiTick className="text-green-500 text-[20px]" />
+                        </div>
+                        <p className="text-[24px] text-[#454545]">{data}</p>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -69,30 +53,14 @@ const ProductDetails = () => {
                     {item.title}
                   </h2>
                   <ul className="flex flex-col gap-10">
-                    <li className="flex items-baseline gap-3">
-                      <div className="w-[20px]">
-                        <TiTick className="text-green-500 text-[20px]" />
-                      </div>
-                      <p className="text-[24px] text-[#454545]">
-                        {item.details.detail1}
-                      </p>
-                    </li>
-                    <li className="flex items-baseline gap-3">
-                      <div className="w-[20px]">
-                        <TiTick className="text-green-500 text-[20px]" />
-                      </div>
-                      <p className="text-[24px] text-[#454545]">
-                        {item.details.detail2}
-                      </p>
-                    </li>
-                    <li className="flex items-baseline gap-3">
-                      <div className="w-[20px]">
-                        <TiTick className="text-green-500 text-[20px]" />
-                      </div>
-                      <p className="text-[24px] text-[#454545]">
-                        {item.details.detail3}
-                      </p>
-                    </li>
+                    {item.details.map((data) => (
+                      <li className="flex items-baseline gap-3">
+                        <div className="w-[20px]">
+                          <TiTick className="text-green-500 text-[20px]" />
+                        </div>
+                        <p className="text-[24px] text-[#454545]">{data}</p>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -105,3 +73,4 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
+

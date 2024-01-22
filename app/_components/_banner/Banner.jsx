@@ -12,12 +12,11 @@ const Banner = () => {
       <div className="max-w-container mx-auto px-[15px] flex flex-col md:flex-row items-center gap-y-10 md:gap-x-3">
         <div className="w-full md:w-[50%] relative">
             <Image src={bannerarrow} className="absolute z-[999] right-[-150px] top-[-30px] w-[200px] h-auto hidden md:block" alt="banner arrow"/>
-          <h1 className="text-[60px] leading-[70px] md:leading-[130px] md:text-[90px]  font-extrabold text-center md:text-left">
-            অল্প খরচে দ্রুত প্রাথমিক রোগ নিরাময় সল্যুশন
+          <h1 className="text-[60px] leading-[70px] md:leading-[130px] md:text-[70px]  font-extrabold text-center md:text-left">
+          অল্প খরচে প্রাথমিক রোগ নিরাময়ের তাৎক্ষণিক সমাধান
           </h1>
           <h4 className="text-[25px] font-semibold text-p-ash mt-5 text-center md:text-left">
-            দ্রুত ও নির্ভরযোগ্য প্রাথমিক চিকিৎসা সল্যুশন <br /> হচ্ছে আমাদের এই
-            ফাস্ট এইড বক্স
+          দ্রুত ও নির্ভরযোগ্য প্রাথমিক চিকিৎসার তাৎক্ষণিক সমাধান হচ্ছে আমাদের এই ‘ফার্স্ট এইড বক্স’
           </h4>
           <div className="mt-7 flex justify-center md:justify-start">
             <div className="text-[12px] md:text-base px-[50px] md:px-[70px] py-[10px] md:py-[15px] rounded-lg border-[3px] border-p-green bg-p-green text-center text-[white] font-semibold cursor-pointer duration-300 hover:bg-white hover:text-black">
