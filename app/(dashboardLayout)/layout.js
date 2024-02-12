@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 
-const Dashboard = () => {
+const Dashboard = ({ children }) => {
   const [show, setShow] = useState(false);
   return (
     <div className='  '>
@@ -29,32 +29,28 @@ const Dashboard = () => {
             }     bg-gray-800 z-40`}
           >
             <div className='px-2 h-screen w-[200px]'>
-              <Link href={"/"}>
-                <h2 className='text-2xl my-2 p-2 rounded-sm cursor-pointer text-white hover:bg-[#4e4e52]'>
+              <Link href={"/settings"}>
+                <h2 className='text-lg my-2 p-2 rounded-sm cursor-pointer text-white hover:bg-[#4e4e52]'>
                   Settings
                 </h2>
               </Link>
-              <h2 className='text-2xl my-2 p-2 rounded-sm cursor-pointer text-white hover:bg-[#4e4e52]'>
-                Orders
-              </h2>
-              <h2 className='text-2xl my-2 p-2 rounded-sm cursor-pointer text-white hover:bg-[#4e4e52]'>
-                products
-              </h2>
-              <h2 className='text-2xl my-2 p-2 rounded-sm cursor-pointer  text-white hover:bg-[#4e4e52]'>
+              <Link href={"/orders"}>
+                <h2 className='text-lg my-2 p-2 rounded-sm cursor-pointer text-white hover:bg-[#4e4e52]'>
+                  Orders
+                </h2>
+              </Link>
+              <Link href={"/products"}>
+                <h2 className='text-lg my-2 p-2 rounded-sm cursor-pointer text-white hover:bg-[#4e4e52]'>
+                  products
+                </h2>
+              </Link>
+              <h2 className='text-lg my-2 p-2 rounded-sm cursor-pointer  text-white hover:bg-[#4e4e52]'>
                 GoodMorning
               </h2>
             </div>
           </div>
         </div>
-        <div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque
-            amet qui quae id, asperiores consequatur corrupti voluptatibus rem
-            repellendus ea ullam quis ducimus doloribus cupiditate alias
-            doloremque vitae quas quibusdam laudantium est? Accusamus vero ex
-            voluptate labore asperiores doloremque pariatur.
-          </p>
-        </div>
+        <div>{children}</div>
       </div>
     </div>
   );
