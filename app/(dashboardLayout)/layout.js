@@ -13,10 +13,6 @@ const Dashboard = ({ children }) => {
             <h2 className='text-2xl py-3 text-white'>LOGO</h2>
           </div>
           <div className=' mt-3 lg:hidden'>
-            {/* <span
-              onClick={() => setShow(!show)}
-              className='text-white border-2 p-3 cursor-pointer'
-            ></span> */}
             <div>
               <IoMenu
                 className='text-white cursor-pointer text-3xl'
@@ -38,17 +34,17 @@ const Dashboard = ({ children }) => {
           >
             <div className='px-2 h-screen w-[200px]'>
               <div>
-                <Link href={"/settings"}>
+                <Link onClick={() => setShow(!show)} href={"/settings"}>
                   <h2 className='text-lg my-2 p-2 rounded-sm cursor-pointer text-white hover:bg-[#4e4e52]'>
                     Settings
                   </h2>
                 </Link>
-                <Link href={"/orders"}>
+                <Link onClick={() => setShow(!show)} href={"/orders"}>
                   <h2 className='text-lg my-2 p-2 rounded-sm cursor-pointer text-white hover:bg-[#4e4e52]'>
                     Orders
                   </h2>
                 </Link>
-                <Link href={"/products"}>
+                <Link onClick={() => setShow(!show)} href={"/products"}>
                   <h2 className='text-lg my-2 p-2 rounded-sm cursor-pointer text-white hover:bg-[#4e4e52]'>
                     products
                   </h2>

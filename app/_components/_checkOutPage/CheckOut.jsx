@@ -9,9 +9,11 @@ import Image from "next/image";
 
 const CheckOut = () => {
   const [count, setCount] = useState(1);
+  const [total, setTotal] = useState('');
+
+
   const [totalPrice, setTotalPrice] = useState(1500);
   const [delivery, setdelivery] = useState(200);
-
 
   const [discountPrice, setDiscountPrice] = useState(0);
   const [tax, setTax] = useState(0);
@@ -42,6 +44,55 @@ const CheckOut = () => {
     setTax(totalPrice / 100 * 10);
   }, [totalPrice]);
 
+  const [orderData, setOrderData] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    postOffice: "",
+    distric: "",
+    policy: "",
+    zipCode: "",
+    quantity: count,
+    price: total,
+    info: "",
+  });
+
+
+  // console.log(orderData, 'ddddd');
+
+
+  const addOrder = () => {
+
+    fetch("https://firstaidbox-server.vercel.app/api/v1/orders", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // Add any additional headers if needed
+      },
+      body: JSON.stringify(postData),
+    })
+      .then((res) => res.json())
+      .then((responseData) => {
+        // Handle the response data as needed
+        // setData(responseData?.data);
+      })
+      .catch((error) => {
+        // Handle errors
+        console.error('Error fetching data:', error);
+      });
+
+  };
+
+
+  useEffect(() => {
+
+    setOrderData(prevData => ({
+      ...prevData,
+      price: totalPrice + delivery + tax - discountPrice,
+      quantity: count
+    }));
+  }, [count, totalPrice]);
 
   return (
     <div className="py-[50px] md:py-[90px] bg-[#E5E5E5]">
@@ -61,21 +112,28 @@ const CheckOut = () => {
               <form className="grid grid-cols-2 gap-3">
                 <input
                   type="text"
+                  onChange={(e) => setOrderData(prevData => ({ ...prevData, firstName: e?.target?.value }))}
                   placeholder="Frist Name"
                   className="border-2 border-slate-200 outline-[#2ACB35] px-2 py-4 rounded"
                 />
                 <input
                   type="text"
                   placeholder="Last Name"
+                  onChange={(e) => setOrderData(prevData => ({ ...prevData, lastName: e?.target?.value }))}
+
                   className="border-2 border-slate-200 outline-[#2ACB35] px-2 py-4 rounded"
                 />
                 <input
                   type="text"
                   placeholder="Mobile Number"
+                  onChange={(e) => setOrderData(prevData => ({ ...prevData, phone: e?.target?.value }))}
+
                   className="border-2 border-slate-200 outline-[#2ACB35] px-2 py-4 rounded"
                 />
                 <input
                   type="email"
+                  onChange={(e) => setOrderData(prevData => ({ ...prevData, email: e?.target?.value }))}
+
                   placeholder="Email Address"
                   className="border-2 border-slate-200 outline-[#2ACB35] px-2 py-4 rounded"
                 />
@@ -90,21 +148,28 @@ const CheckOut = () => {
                 <input
                   type="text"
                   placeholder="Your Post"
+                  onChange={(e) => setOrderData(prevData => ({ ...prevData, postOffice: e?.target?.value }))}
+
                   className="border-2 border-slate-200 outline-[#2ACB35] px-2 py-4 rounded"
                 />
                 <input
                   type="text"
                   placeholder="Your Police"
+                  onChange={(e) => setOrderData(prevData => ({ ...prevData, policy: e?.target?.value }))}
+
                   className="border-2 border-slate-200 outline-[#2ACB35] px-2 py-4 rounded"
                 />
                 <input
                   type="text"
                   placeholder="Your Distric"
+                  onChange={(e) => setOrderData(prevData => ({ ...prevData, distric: e?.target?.value }))}
+
                   className="border-2 border-slate-200 outline-[#2ACB35] px-2 py-4 rounded"
                 />
                 <input
-                  type="email"
+                  type="text"
                   placeholder="Zip Code"
+                  onChange={(e) => setOrderData(prevData => ({ ...prevData, zipCode: e?.target?.value }))}
                   className="border-2 border-slate-200 outline-[#2ACB35] px-2 py-4 rounded"
                 />
               </form>
@@ -117,6 +182,8 @@ const CheckOut = () => {
               <form className="">
                 <textarea
                   rows="5"
+                  onChange={(e) => setOrderData(prevData => ({ ...prevData, info: e?.target?.value }))}
+
                   className="border-2 border-slate-200 outline-[#2ACB35] px-2 py-4 rounded w-full"
                 ></textarea>
               </form>
