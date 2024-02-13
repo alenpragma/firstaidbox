@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
+import { IoMenu } from "react-icons/io5";
 
 const Dashboard = ({ children }) => {
   const [show, setShow] = useState(false);
@@ -12,17 +13,21 @@ const Dashboard = ({ children }) => {
             <h2 className='text-2xl py-3 text-white'>LOGO</h2>
           </div>
           <div className=' mt-3 lg:hidden'>
-            <span
+            {/* <span
               onClick={() => setShow(!show)}
               className='text-white border-2 p-3 cursor-pointer'
-            >
-              ICON
-            </span>
+            ></span> */}
+            <div>
+              <IoMenu
+                className='text-white cursor-pointer text-3xl'
+                onClick={() => setShow(!show)}
+              />
+            </div>
           </div>
         </div>
       </div>
 
-      <div className='flex  gap-3 '>
+      <div className='flex  gap-3'>
         <div className=' fixed lg:top-1'>
           <div
             className={`absolute lg:relative top-[64px] lg:top-[50px] left-0 ${
@@ -32,29 +37,34 @@ const Dashboard = ({ children }) => {
             }     bg-gray-800 z-40`}
           >
             <div className='px-2 h-screen w-[200px]'>
-              <Link href={"/settings"}>
-                <h2 className='text-lg my-2 p-2 rounded-sm cursor-pointer text-white hover:bg-[#4e4e52]'>
-                  Settings
+              <div>
+                <Link href={"/settings"}>
+                  <h2 className='text-lg my-2 p-2 rounded-sm cursor-pointer text-white hover:bg-[#4e4e52]'>
+                    Settings
+                  </h2>
+                </Link>
+                <Link href={"/orders"}>
+                  <h2 className='text-lg my-2 p-2 rounded-sm cursor-pointer text-white hover:bg-[#4e4e52]'>
+                    Orders
+                  </h2>
+                </Link>
+                <Link href={"/products"}>
+                  <h2 className='text-lg my-2 p-2 rounded-sm cursor-pointer text-white hover:bg-[#4e4e52]'>
+                    products
+                  </h2>
+                </Link>
+                <h2 className='text-lg my-2 p-2 rounded-sm cursor-pointer  text-white hover:bg-[#4e4e52]'>
+                  GoodMorning
                 </h2>
-              </Link>
-              <Link href={"/orders"}>
-                <h2 className='text-lg my-2 p-2 rounded-sm cursor-pointer text-white hover:bg-[#4e4e52]'>
-                  Orders
+                <h2 className='text-lg my-2 p-2 rounded-sm cursor-pointer  text-white hover:bg-[#4e4e52]'>
+                  GoodMorning
                 </h2>
-              </Link>
-              <Link href={"/products"}>
-                <h2 className='text-lg my-2 p-2 rounded-sm cursor-pointer text-white hover:bg-[#4e4e52]'>
-                  products
-                </h2>
-              </Link>
-              <h2 className='text-lg my-2 p-2 rounded-sm cursor-pointer  text-white hover:bg-[#4e4e52]'>
-                GoodMorning
-              </h2>
+              </div>
             </div>
           </div>
         </div>
         <div className={`${"lg:ml-[200px]"} mt-16`}>
-          <div>{children}</div>
+          <div className='p-2 lg:p-4'>{children}</div>
         </div>
       </div>
     </div>
