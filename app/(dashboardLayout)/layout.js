@@ -5,24 +5,27 @@ import React, { useState } from "react";
 const Dashboard = ({ children }) => {
   const [show, setShow] = useState(false);
   return (
-    <div className='  '>
-      <div className='flex justify-between bg-gray-900 px-5 p-1'>
-        <div>
-          <h2 className='text-2xl py-3 text-white'>LOGO</h2>
-        </div>
-        <div className=' mt-3 lg:hidden'>
-          <span
-            onClick={() => setShow(!show)}
-            className='text-white border-2 p-3 cursor-pointer'
-          >
-            ICON
-          </span>
+    <div className='  relative'>
+      <div className=' fixed top-0 w-full'>
+        <div className=' flex justify-between  bg-gray-900 px-5 p-1'>
+          <div>
+            <h2 className='text-2xl py-3 text-white'>LOGO</h2>
+          </div>
+          <div className=' mt-3 lg:hidden'>
+            <span
+              onClick={() => setShow(!show)}
+              className='text-white border-2 p-3 cursor-pointer'
+            >
+              ICON
+            </span>
+          </div>
         </div>
       </div>
+
       <div className='flex  gap-3 '>
-        <div className='  '>
+        <div className=' fixed lg:top-1'>
           <div
-            className={`absolute lg:relative top-[64px] lg:-top-2 left-0 ${
+            className={`absolute lg:relative top-[64px] lg:top-[50px] left-0 ${
               show
                 ? "-ml-[200px] lg:ml-0 transition-all duration-100"
                 : "transition-all duration-100"
@@ -50,7 +53,9 @@ const Dashboard = ({ children }) => {
             </div>
           </div>
         </div>
-        <div>{children}</div>
+        <div className={`${"lg:ml-[200px]"} mt-16`}>
+          <div>{children}</div>
+        </div>
       </div>
     </div>
   );
