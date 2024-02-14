@@ -48,7 +48,7 @@ const Orders = () => {
                 </thead>
                 <tbody className=' divide-y divide-[#BDBDBD]'>
                   {/* <!-- Table rows go here --> */}
-                  {orders?.data?.map((order) => {
+                  {orders?.data?.data?.map((order) => {
                     return (
                       <tr className=' '>
                         {/* {console.log(order, "oooo")} */}
@@ -82,7 +82,7 @@ const Orders = () => {
                         </td>
                         <td className='px-6 py-4 whitespace-no-wrap'>
                           <span className='px-2 inline-flex text-xs leading-5 font-semibold rounded-full '>
-                            {order?.status ? "False" : "True"}
+                            {!order?.status ? "Pending" : "Success"}
                           </span>
                         </td>
                       </tr>

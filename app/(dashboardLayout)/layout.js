@@ -1,10 +1,16 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoMenu } from "react-icons/io5";
 
 const Dashboard = ({ children }) => {
   const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (!show) {
+      setShow(true);
+    }
+  }, []);
   return (
     <div className='  relative'>
       <div className=' fixed top-0 w-full'>
