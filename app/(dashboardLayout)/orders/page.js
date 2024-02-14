@@ -6,11 +6,11 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
 
   const getData = () => {
-    fetch("https://firstaidbox-server.vercel.app/api/v1/orders")
+    fetch("http://localhost:5000/api/v1/orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   };
-  // console.log(order);
+  console.log(orders);
   useEffect(() => {
     getData();
   }, []);
@@ -36,13 +36,13 @@ const Orders = () => {
                       Email
                     </th>
                     <th className='px-6 py-3  text-left text-xs leading-4 font-medium  uppercase tracking-wider'>
-                      Email
+                      Price
                     </th>
                     <th className='px-6 py-3  text-left text-xs leading-4 font-medium  uppercase tracking-wider'>
                       quantity
                     </th>
                     <th className='px-6 py-3  text-left text-xs leading-4 font-medium  uppercase tracking-wider'>
-                      Price
+                      Status
                     </th>
                   </tr>
                 </thead>
@@ -51,7 +51,7 @@ const Orders = () => {
                   {orders?.data?.map((order) => {
                     return (
                       <tr className=' '>
-                        {console.log(order, "oooo")}
+                        {/* {console.log(order, "oooo")} */}
                         <td className='pr-6 py-4 whitespace-no-wrap'>
                           <div className='ml-4'>
                             <div className='text-sm leading-5 font-medium text-[#1B1B1B]'>
@@ -66,7 +66,7 @@ const Orders = () => {
                         </td>
                         <td className='px-6 py-4 whitespace-no-wrap'>
                           <span className='px-2 inline-flex text-xs leading-5 font-semibold rounded-full '>
-                            {order?.email} example@.email
+                            {order?.email}
                           </span>
                         </td>
 
@@ -77,12 +77,12 @@ const Orders = () => {
                         </td>
                         <td className='px-6 py-4 whitespace-no-wrap'>
                           <span className='px-2 inline-flex text-xs leading-5 font-semibold rounded-full '>
-                            {order?.status} 00
+                            {order?.quantity}
                           </span>
                         </td>
                         <td className='px-6 py-4 whitespace-no-wrap'>
                           <span className='px-2 inline-flex text-xs leading-5 font-semibold rounded-full '>
-                            {order?.status} pending
+                            {order?.status ? "False" : "True"}
                           </span>
                         </td>
                       </tr>

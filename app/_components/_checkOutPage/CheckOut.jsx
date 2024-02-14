@@ -69,7 +69,7 @@ const CheckOut = () => {
       return;
     }
 
-    fetch("https://firstaidbox-server.vercel.app/api/v1/orders", {
+    fetch("http://localhost:5000/api/v1/orders", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -80,13 +80,14 @@ const CheckOut = () => {
       .then((res) => res.json())
       .then((responseData) => {
         // Handle the response data as needed
-        // setData(responseData?.data);
+        console.log(responseData?.data);
+        alert("Successfuly order complete");
       })
+
       .catch((error) => {
         // Handle errors
         console.error('Error fetching data:', error);
       });
-
   };
 
 
