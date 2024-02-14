@@ -1,9 +1,12 @@
-import React from "react";
+'use client';
+import React, { useEffect, useState } from "react";
 import Container from "../container/Container";
 import backgroundImage from "../../../public/first-aid-img/background.jpg";
 import Image from "next/image";
 
 const Order = () => {
+
+
   return (
     <div
       className=""
@@ -15,7 +18,7 @@ const Order = () => {
       }}
     >
       <div className="w-full h-full bg-[#2ACB35B2] py-[50px] md:py-[90px]">
-      <Container>
+        <Container>
           <div className="flex flex-col items-center justify-center w-full ">
             <h1 className="text-[#FFF] text-[40px] md:text-[60px] lg:text-[80px] font-bold text-center">
               এখনই অর্ডার করুন আমাদের স্পেশাল ফার্স্ট এইড বক্স
@@ -29,9 +32,9 @@ const Order = () => {
               </button>
             </div>
           </div>
-      </Container>
+        </Container>
       </div>
- 
+
     </div>
   );
 };
