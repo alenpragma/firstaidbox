@@ -10,7 +10,9 @@ const Dashboard = ({ children }) => {
       <div className=' fixed top-0 w-full'>
         <div className=' flex justify-between  bg-gray-900 px-5 p-1'>
           <div>
-            <h2 className='text-2xl py-3 text-white'>LOGO</h2>
+            <Link href={"/"}>
+              <h2 className='text-2xl py-3 text-white'>LOGO</h2>
+            </Link>
           </div>
           <div className=' mt-3 lg:hidden'>
             <div>
@@ -23,8 +25,8 @@ const Dashboard = ({ children }) => {
         </div>
       </div>
 
-      <div className='flex  gap-3'>
-        <div className=' fixed lg:top-1'>
+      <div className='flex '>
+        <div className=' fixed   lg:top-1'>
           <div
             className={`absolute lg:relative top-[64px] lg:top-[50px] left-0 ${
               show
@@ -59,8 +61,8 @@ const Dashboard = ({ children }) => {
             </div>
           </div>
         </div>
-        <div className={`${"lg:ml-[200px]"} mt-16`}>
-          <div className='p-2 lg:p-4'>{children}</div>
+        <div className={` mx-auto top-0 left-0 mt-16`}>
+          <div className='p-2 lg:p-4 lg:ms-[200px] mx-auto'>{children}</div>
         </div>
       </div>
     </div>

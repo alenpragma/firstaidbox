@@ -59,10 +59,15 @@ const CheckOut = () => {
   });
 
 
-  // console.log(orderData, 'ddddd');
+  console.log(orderData, 'ddddd');
 
 
   const addOrder = () => {
+    const isAnyValueEmpty = Object.values(orderData).some(value => value === "");
+    if (isAnyValueEmpty) {
+      alert("There is at least one empty value in orderData");
+      return;
+    }
 
     fetch("https://firstaidbox-server.vercel.app/api/v1/orders", {
       method: 'POST',
@@ -70,7 +75,7 @@ const CheckOut = () => {
         'Content-Type': 'application/json',
         // Add any additional headers if needed
       },
-      body: JSON.stringify(postData),
+      body: JSON.stringify(orderData),
     })
       .then((res) => res.json())
       .then((responseData) => {
@@ -83,6 +88,7 @@ const CheckOut = () => {
       });
 
   };
+
 
 
   useEffect(() => {
@@ -274,7 +280,7 @@ const CheckOut = () => {
               </div>
             </div>
             <div>
-              <button className="w-full px-8 py-3 bg-[#2ACB35] hover:bg-[#43b04a] rounded-md text-[#FFF] font-semibold text-[24px] uppercase">
+              <button onClick={() => addOrder()} className="w-full px-8 py-3 bg-[#2ACB35] hover:bg-[#43b04a] rounded-md text-[#FFF] font-semibold text-[24px] uppercase">
                 Order Now
               </button>
             </div>
