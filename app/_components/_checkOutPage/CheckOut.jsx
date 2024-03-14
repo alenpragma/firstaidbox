@@ -69,7 +69,7 @@ const CheckOut = () => {
       return;
     }
 
-    fetch("http://localhost:5000/api/v1/orders", {
+    fetch("https://firstaidbox-admin-sigma.vercel.app/api/v1/orders", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -275,7 +275,9 @@ const CheckOut = () => {
                 <btutton className="w-[150px] bg-white rounded p-2 cursor-pointer">
                   <Image className="w-full" src={rocket} alt="" />
                 </btutton>
-                <btutton className="w-[150px] bg-white rounded p-2 cursor-pointer">
+                <btutton
+                  onClick={(e) => setOrderData(prevData => ({ ...prevData, payment: 'Cash' }))}
+                  className="w-[150px] bg-white rounded p-2 cursor-pointer">
                   <Image className="w-full" src={cashDelevery} alt="" />
                 </btutton>
               </div>
