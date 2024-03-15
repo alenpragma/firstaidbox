@@ -6,15 +6,14 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
 
   const getData = () => {
-    fetch("http://localhost:5000/api/v1/orders")
+    fetch("https://firstaidbox-admin-sigma.vercel.app/api/v1/orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   };
-  console.log(orders);
+
   useEffect(() => {
     getData();
   }, []);
-  console.log(orders?.data);
 
   return (
     <>

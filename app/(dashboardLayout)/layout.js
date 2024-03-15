@@ -17,7 +17,7 @@ const Dashboard = ({ children }) => {
         <div className=' flex justify-between  bg-gray-900 px-5 p-1'>
           <div>
             <Link href={"/"}>
-              <h2 className='text-2xl py-3 text-white'>LOGO</h2>
+              <h2 className='text-2xl py-3 text-white'>GOOD MORNING</h2>
             </Link>
           </div>
           <div className=' mt-3 lg:hidden'>
@@ -31,7 +31,7 @@ const Dashboard = ({ children }) => {
         </div>
       </div>
 
-      <div className='flex '>
+      <div className='flex'>
         <div className=' fixed   lg:top-1'>
           <div
             className={`absolute lg:relative top-[64px] lg:top-[50px] left-0 ${
