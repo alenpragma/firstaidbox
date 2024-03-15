@@ -32,7 +32,7 @@ const Dashboard = ({ children }) => {
       </div>
 
       <div className='flex'>
-        <div className=' fixed   lg:top-1'>
+        <div className=' fixed lg:top-1'>
           <div
             className={`absolute lg:relative top-[64px] lg:top-[50px] left-0 ${
               show
