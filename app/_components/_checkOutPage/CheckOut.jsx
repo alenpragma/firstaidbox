@@ -102,7 +102,7 @@ const CheckOut = () => {
   }, [count, totalPrice]);
 
   return (
-    <div className="py-[50px] md:py-[90px] bg-[#E5E5E5]">
+    <div id="orderNow" className="py-[50px] md:py-[90px] bg-[#E5E5E5]">
       <Container>
         <div>
           <h2 className="lg:text-[#1D1D1D] lg:text-7xl md:text-5xl text-3xl mb-8 font-bold">
@@ -269,12 +269,14 @@ const CheckOut = () => {
                 Payment Method
               </h2>
               <div className="bg-[#E5E5E5] px-5 py-8 rounded flex justify-around">
-                <btutton className="w-[150px] bg-white rounded p-2 cursor-pointer">
+
+                {/* <btutton className="w-[150px] bg-white rounded p-2 cursor-pointer">
                   <Image className="w-full" src={bkash} alt="" />
                 </btutton>
                 <btutton className="w-[150px] bg-white rounded p-2 cursor-pointer">
                   <Image className="w-full" src={rocket} alt="" />
-                </btutton>
+                </btutton> */}
+
                 <btutton
                   onClick={(e) => setOrderData(prevData => ({ ...prevData, payment: 'Cash' }))}
                   className="w-[150px] bg-white rounded p-2 cursor-pointer">
