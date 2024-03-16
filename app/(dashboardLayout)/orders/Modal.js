@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 const Modal = ({ isOpen, onClose }) => {
-  console.log(isOpen, onClose);
   const [show, setShow] = useState("1");
 
   return (
