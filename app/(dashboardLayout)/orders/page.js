@@ -25,7 +25,6 @@ const Orders = () => {
   useEffect(() => {
     getData();
   }, []);
-
   return (
     <>
       <div className=' py-5 pb-10'>
@@ -93,7 +92,7 @@ const Orders = () => {
                         </td>
                         <td className='px-2 py-4 whitespace-no-wrap'>
                           <span className='px-2 inline-flex text-xs leading-5 font-semibold  '>
-                            {!order?.status ? "Pending" : "Success"}
+                            {!order?.status}
                           </span>
                         </td>
                         <td className='px-2 py-4 '>

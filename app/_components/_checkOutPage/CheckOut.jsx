@@ -56,38 +56,39 @@ const CheckOut = () => {
     quantity: count,
     price: total,
     info: "",
+    payment: ""
   });
 
 
-  console.log(orderData, 'ddddd');
 
 
   const addOrder = () => {
+    console.log(orderData, 'ddddd');
     const isAnyValueEmpty = Object.values(orderData).some(value => value === "");
     if (isAnyValueEmpty) {
       alert("There is at least one empty value in orderData");
       return;
     }
 
-    fetch("https://firstaidbox-admin-sigma.vercel.app/api/v1/orders", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        // Add any additional headers if needed
-      },
-      body: JSON.stringify(orderData),
-    })
-      .then((res) => res.json())
-      .then((responseData) => {
-        // Handle the response data as needed
-        console.log(responseData?.data);
-        alert("Successfuly order complete");
-      })
+    // fetch("https://firstaidbox-admin-sigma.vercel.app/api/v1/orders", {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     // Add any additional headers if needed
+    //   },
+    //   body: JSON.stringify(orderData),
+    // })
+    //   .then((res) => res.json())
+    //   .then((responseData) => {
+    //     // Handle the response data as needed
+    //     console.log(responseData?.data);
+    //     alert("Successfuly order complete");
+    //   })
 
-      .catch((error) => {
-        // Handle errors
-        console.error('Error fetching data:', error);
-      });
+    //   .catch((error) => {
+    //     // Handle errors
+    //     console.error('Error fetching data:', error);
+    //   });
   };
 
 
@@ -279,7 +280,7 @@ const CheckOut = () => {
 
                 <btutton
                   onClick={(e) => setOrderData(prevData => ({ ...prevData, payment: 'Cash' }))}
-                  className="w-[150px] bg-white rounded p-2 cursor-pointer">
+                  className={`${orderData.payment == "Cash" && "border border-black"} w-[150px]  bg-white rounded p-2 cursor-pointer`}>
                   <Image className="w-full" src={cashDelevery} alt="" />
                 </btutton>
               </div>
