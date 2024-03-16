@@ -26,6 +26,38 @@ const Orders = () => {
     getData();
   }, []);
 
+  const rejectOrder = (id) => {
+    console.log(id);
+    const res = confirm("are you went to Reject This order");
+
+    if (!res) {
+      console.log("Delete cancel");
+      return;
+    }
+    fetch(`https://firstaidbox-admin-sigma.vercel.app/api/v1/orders/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ status: "Rejected" }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        getData();
+        alert("Rejected Successfull");
+        // Handle success, e.g., show a success message or update UI
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+        // Handle error, e.g., show an error message
+      });
+  };
+
   return (
     <>
       <div className=' py-5 pb-10'>
@@ -46,6 +78,15 @@ const Orders = () => {
                       Email
                     </th>
                     <th className='px-2 py-3  text-left text-xs leading-4 font-medium  uppercase tracking-wider'>
+                      District
+                    </th>
+                    <th className='px-2 py-3  text-left text-xs leading-4 font-medium  uppercase tracking-wider'>
+                      Police Station
+                    </th>
+                    <th className='px-2 py-3  text-left text-xs leading-4 font-medium  uppercase tracking-wider'>
+                      Zip
+                    </th>
+                    <th className='px-2 py-3  text-left text-xs leading-4 font-medium  uppercase tracking-wider'>
                       Price
                     </th>
                     <th className='px-2 py-3  text-left text-xs leading-4 font-medium  uppercase tracking-wider'>
@@ -54,7 +95,7 @@ const Orders = () => {
                     <th className='px-2 py-3  text-left text-xs leading-4 font-medium  uppercase tracking-wider'>
                       Status
                     </th>
-                    <th className='px-2 py-3  text-left text-xs leading-4 font-medium  uppercase tracking-wider'>
+                    <th className='px-2 py-3   text-center text-xs leading-4 font-medium  uppercase tracking-wider'>
                       Actions
                     </th>
                   </tr>
@@ -83,6 +124,22 @@ const Orders = () => {
 
                         <td className='px-2 py-4 whitespace-no-wrap'>
                           <span className='px-2 inline-flex text-xs leading-5 font-semibold  '>
+                            {order?.district}
+                          </span>
+                        </td>
+                        <td className='px-2 py-4 whitespace-no-wrap'>
+                          <span className='px-2 inline-flex text-xs leading-5 font-semibold  '>
+                            {order?.policeStation}
+                          </span>
+                        </td>
+                        <td className='px-2 py-4 whitespace-no-wrap'>
+                          <span className='px-2 inline-flex text-xs leading-5 font-semibold  '>
+                            {order?.zipCode}
+                          </span>
+                        </td>
+
+                        <td className='px-2 py-4 whitespace-no-wrap'>
+                          <span className='px-2 inline-flex text-xs leading-5 font-semibold  '>
                             {order?.price}
                           </span>
                         </td>
@@ -93,20 +150,29 @@ const Orders = () => {
                         </td>
                         <td className='px-2 py-4 whitespace-no-wrap'>
                           <span className='px-2 inline-flex text-xs leading-5 font-semibold  '>
-                            {!order?.status ? "Pending" : "Success"}
+                            {order?.status}
                           </span>
                         </td>
                         <td className='px-2 py-4 '>
                           <div className='flex gap-3'>
                             <button
                               onClick={openModal}
-                              className='bg-gray-600 px-2 py-1 text-white rounded-md text-xs'
+                              className='bg-green-600 px-3 py-1.5 text-white rounded-md text-xs'
                             >
-                              EDIT
+                              Edit
                             </button>
-                            <button className='bg-red-500 px-2 py-1 text-white rounded-md text-xs'>
-                              Delete
-                            </button>
+                            {order.status == "Rejected" ? (
+                              <button className='bg-red-500 w-16 py-1.5 text-white rounded-md text-xs'>
+                                Rejected
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => rejectOrder(order?._id)}
+                                className='bg-[#061336] w-16 py-1.5 text-white rounded-md text-xs'
+                              >
+                                Reject
+                              </button>
+                            )}
                           </div>
                         </td>
                       </tr>

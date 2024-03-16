@@ -13,7 +13,7 @@ const CheckOut = () => {
 
 
   const [totalPrice, setTotalPrice] = useState(1500);
-  const [delivery, setdelivery] = useState(200);
+  const [delivery, setdelivery] = useState(0);
 
   const [discountPrice, setDiscountPrice] = useState(0);
   const [tax, setTax] = useState(0);
@@ -37,11 +37,11 @@ const CheckOut = () => {
   }, [count]);
 
   useEffect(() => {
-    setDiscountPrice(totalPrice / 100 * 10);
+    setDiscountPrice(totalPrice / 100 * 0);
   }, [totalPrice]);
 
   useEffect(() => {
-    setTax(totalPrice / 100 * 10);
+    setTax(totalPrice / 100 * 0);
   }, [totalPrice]);
 
   const [orderData, setOrderData] = useState({
@@ -49,17 +49,17 @@ const CheckOut = () => {
     lastName: "",
     phone: "",
     email: "",
-    postOffice: "",
-    distric: "",
-    policy: "",
+    roadHouse: "",
+    district: "",
+    policeStation: "",
     zipCode: "",
     quantity: count,
     price: total,
     info: "",
+    payment: ""
   });
 
 
-  console.log(orderData, 'ddddd');
 
 
   const addOrder = () => {
@@ -68,6 +68,7 @@ const CheckOut = () => {
       alert("There is at least one empty value in orderData");
       return;
     }
+    console.log(orderData);
 
     fetch("https://firstaidbox-admin-sigma.vercel.app/api/v1/orders", {
       method: 'POST',
@@ -149,27 +150,27 @@ const CheckOut = () => {
             {/* Billing Information */}
             <div className="bg-[#FFF] px-5 py-10 rounded">
               <h2 className="text-[#1D1D1D] text-[24px] font-bold mb-2">
-                Billing Information
+                Address
               </h2>
               <form className="grid grid-cols-2 gap-3">
                 <input
                   type="text"
-                  placeholder="Your Post"
-                  onChange={(e) => setOrderData(prevData => ({ ...prevData, postOffice: e?.target?.value }))}
+                  placeholder="Road / House"
+                  onChange={(e) => setOrderData(prevData => ({ ...prevData, roadHouse: e?.target?.value }))}
 
                   className="border-2 border-slate-200 outline-[#2ACB35] px-2 py-4 rounded"
                 />
                 <input
                   type="text"
-                  placeholder="Your Police"
-                  onChange={(e) => setOrderData(prevData => ({ ...prevData, policy: e?.target?.value }))}
+                  placeholder="Police station"
+                  onChange={(e) => setOrderData(prevData => ({ ...prevData, policeStation: e?.target?.value }))}
 
                   className="border-2 border-slate-200 outline-[#2ACB35] px-2 py-4 rounded"
                 />
                 <input
                   type="text"
-                  placeholder="Your Distric"
-                  onChange={(e) => setOrderData(prevData => ({ ...prevData, distric: e?.target?.value }))}
+                  placeholder="Your District"
+                  onChange={(e) => setOrderData(prevData => ({ ...prevData, district: e?.target?.value }))}
 
                   className="border-2 border-slate-200 outline-[#2ACB35] px-2 py-4 rounded"
                 />
@@ -238,7 +239,7 @@ const CheckOut = () => {
                   </li>
                   <li className="flex justify-between p-2">
                     <span className="text-[#323232] text-[24px] font-bold">
-                      Tax <span className="ps-3">10%</span>
+                      Tax <span className="ps-3">0</span>
                     </span>
                     <span className="text-[#323232] text-[24px] font-bold">
                       {tax}
@@ -246,7 +247,7 @@ const CheckOut = () => {
                   </li>
                   <li className="flex justify-between p-2">
                     <span className="text-[#323232] text-[24px] font-bold">
-                      Discount <span className="ps-3"> {'10'} %</span>
+                      Discount <span className="ps-3"> {'0'}</span>
                     </span>
                     <span className="text-[#323232] text-[24px] font-bold">
                       {discountPrice}
@@ -279,7 +280,7 @@ const CheckOut = () => {
 
                 <btutton
                   onClick={(e) => setOrderData(prevData => ({ ...prevData, payment: 'Cash' }))}
-                  className="w-[150px] bg-white rounded p-2 cursor-pointer">
+                  className={`${orderData.payment == "Cash" && "border border-black"} w-[150px]  bg-white rounded p-2 cursor-pointer`}>
                   <Image className="w-full" src={cashDelevery} alt="" />
                 </btutton>
               </div>

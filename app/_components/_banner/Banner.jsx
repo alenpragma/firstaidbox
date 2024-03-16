@@ -20,7 +20,7 @@ const Banner = () => {
             দ্রুত ও নির্ভরযোগ্য প্রাথমিক চিকিৎসার তাৎক্ষণিক সমাধান হচ্ছে আমাদের এই ‘ফার্স্ট এইড বক্স’
           </h4>
           <div className="mt-7 flex justify-center md:justify-start">
-            <Link href={'#orderNow'} smooth={true} duration={500}>
+            <Link href={'#orderNow'} >
               <div className="text-[12px] md:text-base px-[50px] md:px-[70px] py-[10px] md:py-[15px] rounded-lg border-[3px] border-p-green bg-p-green text-center text-[white] font-semibold cursor-pointer duration-300 hover:bg-white hover:text-black">
                 অর্ডার করুন
               </div>
