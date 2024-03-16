@@ -21,30 +21,28 @@ const Modal = ({ isOpen, onClose }) => {
                 </div>
                 <div className='max-w-screen  font-semibold  lg:w-[654px]  '>
                   <div>
-                    <p className=' text-md mb-[30px] text-center lg:text-2xl'>
+                    <p className='text-md mb-[30px] text-center lg:text-2xl'>
                       UPDATE ORDER
                     </p>
                   </div>
                   <div>
-                    <div className=''>
-                      <div>
-                        <div className='bg-white   flex p-1 rounded-full w-fit gap-4'>
-                          <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Quas, ducimus.
-                          </p>
-                        </div>
-                        <div className='w-full bg-[#fff] mt-[35px] h-14 px-3 rounded-2xl flex place-items-center justify-between gap-4 border-[1px] border-[#FF971D]'>
-                          <div className='flex place-items-center gap-1'>
-                            {/* <Search /> */}
-                            <input
-                              type='text'
-                              className='text-[#434343] w-full bg-inherit text-lg h-14 border-y-[1px] border-[#FF971D] outline-none'
-                              placeholder='Search'
-                            />
-                          </div>
-                        </div>
-                      </div>
+                    <div className='flex flex-col gap-3'>
+                      <input
+                        type='text'
+                        className='text-[#434343] w-full bg-inherit ps-3  rounded-lg text-lg h-10 border border-[#343230] outline-none'
+                        placeholder='Search'
+                      />
+
+                      <input
+                        type='text'
+                        className='text-[#434343] w-full bg-inherit ps-3 rounded-lg text-lg h-10 border border-[#343230] outline-none'
+                        placeholder='Search'
+                      />
+                      <input
+                        type='text'
+                        className='text-[#434343] w-full bg-inherit ps-3 rounded-lg text-lg h-10 border border-[#343230] outline-none'
+                        placeholder='Search'
+                      />
                     </div>
                   </div>
                 </div>

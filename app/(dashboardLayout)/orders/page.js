@@ -58,7 +58,6 @@ const Orders = () => {
       });
   };
 
-  console.log(orders);
   return (
     <>
       <div className=' py-5 pb-10'>
@@ -83,6 +82,9 @@ const Orders = () => {
                     </th>
                     <th className='px-2 py-3  text-left text-xs leading-4 font-medium  uppercase tracking-wider'>
                       Police Station
+                    </th>
+                    <th className='px-2 py-3  text-left text-xs leading-4 font-medium  uppercase tracking-wider'>
+                      Zip
                     </th>
                     <th className='px-2 py-3  text-left text-xs leading-4 font-medium  uppercase tracking-wider'>
                       Price
@@ -128,6 +130,11 @@ const Orders = () => {
                         <td className='px-2 py-4 whitespace-no-wrap'>
                           <span className='px-2 inline-flex text-xs leading-5 font-semibold  '>
                             {order?.policeStation}
+                          </span>
+                        </td>
+                        <td className='px-2 py-4 whitespace-no-wrap'>
+                          <span className='px-2 inline-flex text-xs leading-5 font-semibold  '>
+                            {order?.zipCode}
                           </span>
                         </td>
 
