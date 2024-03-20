@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 const Modal = ({ id, getData, isOpen, onClose }) => {
-  console.log(id);
+  // console.log(id);
 
   const {
     register,
@@ -31,6 +31,7 @@ const Modal = ({ id, getData, isOpen, onClose }) => {
         console.log(data?.status, "data");
         getData();
         alert(`Successfully update to ${data?.status}`);
+        onClose();
         // Handle success, e.g., show a success message or update UI
       })
       .catch((error) => {
