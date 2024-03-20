@@ -3,12 +3,16 @@
 import { useEffect, useState } from "react";
 import Modal from "./Modal";
 import App from "./Pagination";
+import OrderDetailsModal from "@/app/_components/dashboardLayout/orderDetailsModal";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const [detailsModal, setDetailsModal] = useState(false);
 
   const [modalOpen, setModalOpen] = useState(false);
+
   const [id, setId] = useState();
+  const [data, setData] = useState();
 
   const openModal = (id) => {
     setModalOpen(true);
@@ -17,6 +21,14 @@ const Orders = () => {
 
   const closeModal = () => {
     setModalOpen(false);
+  };
+
+  const openDetailsModal = (data) => {
+    setDetailsModal(true);
+    setData(data);
+  };
+  const closeDetailsModal = () => {
+    setDetailsModal(false);
   };
 
   const getData = () => {
@@ -176,7 +188,10 @@ const Orders = () => {
                                 Reject
                               </button>
                             )}
-                            <button className='bg-[#061336] w-16 py-1.5 text-white rounded-md text-xs'>
+                            <button
+                              onClick={() => openDetailsModal(order)}
+                              className='bg-[#061336] w-16 py-1.5 text-white rounded-md text-xs'
+                            >
                               Details
                             </button>
                           </div>
@@ -190,8 +205,12 @@ const Orders = () => {
               <div></div>
             </div>
           </div>
-          <p>Lorem ipsum dolor sit.</p>
         </div>
+        <OrderDetailsModal
+          data={data}
+          isOpen={detailsModal}
+          onClose={closeDetailsModal}
+        />
         <Modal
           id={id}
           getData={getData}
