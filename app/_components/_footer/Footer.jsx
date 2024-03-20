@@ -14,7 +14,7 @@ const Footer = () => {
       <Container>
         <div className="lg:flex justify-between">
           <div className="lg:w-[35%] w-full flex flex-col justify-between gap-8 bg-[#FFF] lg:p-14 md:p-8 p-3 rounded-md">
-            <Image className="w-[52px]" src={banner} alt="" />
+            <Image className="w-[150px]" src={banner} alt="" />
             <p>
               ফাস্ট এইড বাক্সটির কোনো পন্য আপনার প্রয়জন হলে আমাদের শপ থেকে নিতে
               পারেন
