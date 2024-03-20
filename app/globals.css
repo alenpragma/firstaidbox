@@ -9,3 +9,9 @@ html,
 body {
   overflow-x: hidden !important;
 }
+
+.modalSelect option select {
+  background: #000;
+  color: #800;
+  padding: 20px;
+}

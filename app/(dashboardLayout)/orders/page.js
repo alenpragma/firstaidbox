@@ -2,14 +2,17 @@
 
 import { useEffect, useState } from "react";
 import Modal from "./Modal";
+import App from "./Pagination";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
 
   const [modalOpen, setModalOpen] = useState(false);
+  const [id, setId] = useState();
 
-  const openModal = () => {
+  const openModal = (id) => {
     setModalOpen(true);
+    setId(id);
   };
 
   const closeModal = () => {
@@ -61,10 +64,10 @@ const Orders = () => {
   return (
     <>
       <div className=' py-5 pb-10'>
-        <h2 className='text-3xl text-center py-5 font-semibold  '>Orders</h2>
+        <h2 className='text-3xl text-center py-5 font-semibold'>Orders</h2>
         <div>
           <div className='flex justify-center align-middle mx-auto'>
-            <div className='border-[#0f0d0d] overflow-x-scroll  w-[400px] lg:w-[920px] border-[1px] rounded-md mt-5'>
+            <div className='border-[#0f0d0d] overflow-x-scroll  w-[400px] md:w-[700px] lg:w-[940px] xl:w-[1200px] border-[1px] rounded-md mt-5'>
               <table className='  md:w-full lg:w-full  divide divide-[#BDBDBD]'>
                 <thead className=' border-b-[1.5px] text-gray-800 border-[#000]'>
                   <tr>
@@ -156,8 +159,8 @@ const Orders = () => {
                         <td className='px-2 py-4 '>
                           <div className='flex gap-3'>
                             <button
-                              onClick={openModal}
-                              className='bg-green-600 px-3 py-1.5 text-white rounded-md text-xs'
+                              onClick={() => openModal(order._id)}
+                              className='bg-green-600 text-center px-3 py-1.5 text-white rounded-md text-xs'
                             >
                               Edit
                             </button>
@@ -173,6 +176,9 @@ const Orders = () => {
                                 Reject
                               </button>
                             )}
+                            <button className='bg-[#061336] w-16 py-1.5 text-white rounded-md text-xs'>
+                              Details
+                            </button>
                           </div>
                         </td>
                       </tr>
@@ -181,10 +187,17 @@ const Orders = () => {
                   {/* <!-- More table rows go here --> */}
                 </tbody>
               </table>
+              <div></div>
             </div>
           </div>
+          <p>Lorem ipsum dolor sit.</p>
         </div>
-        <Modal isOpen={modalOpen} onClose={closeModal} />
+        <Modal
+          id={id}
+          getData={getData}
+          isOpen={modalOpen}
+          onClose={closeModal}
+        />
       </div>
     </>
   );

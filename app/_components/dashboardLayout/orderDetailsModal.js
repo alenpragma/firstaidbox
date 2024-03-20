@@ -1,44 +1,6 @@
 import React from "react";
-import { useForm } from "react-hook-form";
 
-const Modal = ({ id, getData, isOpen, onClose }) => {
-  console.log(id);
-
-  const {
-    register,
-    handleSubmit,
-    watch,
-    reset,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-    // return;
-    fetch(`https://firstaidbox-admin-sigma.vercel.app/api/v1/orders/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then(() => {
-        console.log(data?.status, "data");
-        getData();
-        alert(`Successfully update to ${data?.status}`);
-        // Handle success, e.g., show a success message or update UI
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-        // Handle error, e.g., show an error message
-      });
-  };
-
+const OrderDetailsModal = () => {
   return (
     <div className='mt-10'>
       <>
@@ -97,4 +59,4 @@ const Modal = ({ id, getData, isOpen, onClose }) => {
   );
 };
 
-export default Modal;
+export default OrderDetailsModal;
