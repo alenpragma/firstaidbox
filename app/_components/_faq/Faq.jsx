@@ -28,11 +28,10 @@ const Faq = () => {
                   >
                     ফার্স্ট এইড বক্স কি?
                     <IoIosArrowDown
-                      className={`${
-                        activeIndex === 1
+                      className={`${activeIndex === 1
                           ? "rotate-180 duration-500"
                           : "rotate-0 duration-500"
-                      } text-3xl`}
+                        } text-3xl`}
                     />
                   </h3>
                   {activeIndex === 1 && (
@@ -51,11 +50,10 @@ const Faq = () => {
                   >
                     কতদিনের মধ্যে ডেলিভারী দেওয়া হয়?
                     <IoIosArrowDown
-                      className={`${
-                        activeIndex === 2
+                      className={`${activeIndex === 2
                           ? "rotate-180 duration-500"
                           : "rotate-0 duration-500"
-                      } text-3xl`}
+                        } text-3xl`}
                     />
                   </h3>
                   {activeIndex === 2 && (
@@ -67,13 +65,12 @@ const Faq = () => {
                     className="text-[#1E1E1E] text-[20px] font-bold flex justify-between"
                     onClick={() => toggleAccordion(3)}
                   >
-                    ফাস্ট এইড বক্সের’ উপকরণগুলো শেষ হয়ে গেলে করণীয় কি?
+                    ফার্স্ট এইড বক্সের’ উপকরণগুলো শেষ হয়ে গেলে করণীয় কি?
                     <IoIosArrowDown
-                      className={`${
-                        activeIndex === 3
+                      className={`${activeIndex === 3
                           ? "rotate-180 duration-500"
                           : "rotate-0 duration-500"
-                      } text-3xl`}
+                        } text-3xl`}
                     />
                   </h3>
                   {activeIndex === 3 && (
@@ -93,11 +90,10 @@ const Faq = () => {
                   >
                     কিভাবে মূল্য পরিশোধ করতে হবে?
                     <IoIosArrowDown
-                      className={`${
-                        activeIndex === 4
+                      className={`${activeIndex === 4
                           ? "rotate-180 duration-500"
                           : "rotate-0 duration-500"
-                      } text-3xl`}
+                        } text-3xl`}
                     />
                   </h3>
                   {activeIndex === 4 && (
@@ -115,11 +111,10 @@ const Faq = () => {
                   >
                     কিভাবে অর্ডার করতে হবে?
                     <IoIosArrowDown
-                      className={`${
-                        activeIndex === 5
+                      className={`${activeIndex === 5
                           ? "rotate-180 duration-500"
                           : "rotate-0 duration-500"
-                      } text-3xl`}
+                        } text-3xl`}
                     />
                   </h3>
                   {activeIndex === 5 && (
@@ -138,11 +133,10 @@ const Faq = () => {
                   >
                     ডেলিভারী চার্জ কি প্রযোজ্য ?
                     <IoIosArrowDown
-                      className={`${
-                        activeIndex === 6
+                      className={`${activeIndex === 6
                           ? "rotate-180 duration-500"
                           : "rotate-0 duration-500"
-                      } text-3xl`}
+                        } text-3xl`}
                     />
                   </h3>
                   {activeIndex === 6 && (

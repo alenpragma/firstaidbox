@@ -16,8 +16,7 @@ const Footer = () => {
           <div className="lg:w-[35%] w-full flex flex-col justify-between gap-8 bg-[#FFF] lg:p-14 md:p-8 p-3 rounded-md">
             <Image className="w-[150px]" src={banner} alt="" />
             <p>
-              ফাস্ট এইড বাক্সটির কোনো পন্য আপনার প্রয়জন হলে আমাদের শপ থেকে নিতে
-              পারেন
+              ফার্স্ট এইড বক্সটির যেকোনো উপকরণ শেষে হয়ে গেলে আমাদের শপ থেকে সংগ্রহ করতে পারবেন
             </p>
             <div className="flex lg:justify-start justify-center items-center w-full">
               <button className="px-5 py-3 bg-[#2ACB35] rounded-md text-[#FFF] w-[220px] font-semibold text-[24px]">
@@ -59,8 +58,7 @@ const Footer = () => {
                 আমাদের সম্পর্কে কিছু কথা
               </h2>
               <p>
-                ফাস্ট এইড বাক্সটির কোনো পন্য আপনার প্রয়জন হলে আমাদের শপ থেকে
-                নিতে পারেন
+                ফার্স্ট এইড বক্সটির যেকোনো উপকরণ শেষে হয়ে গেলে আমাদের শপ থেকে সংগ্রহ করতে পারবেন
               </p>
             </div>
           </div>
