@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Modal from "./Modal";
 import App from "./Pagination";
 import OrderDetailsModal from "@/app/_components/dashboardLayout/orderDetailsModal";
+import PaginationButtons from "@/app/_components/PaginationButtons";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -13,6 +14,12 @@ const Orders = () => {
 
   const [id, setId] = useState();
   const [data, setData] = useState();
+
+  console.log(orders);
+  // pagination calculate
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [perPage, setparePage] = useState(25);
 
   const openModal = (id) => {
     setModalOpen(true);
@@ -32,7 +39,9 @@ const Orders = () => {
   };
 
   const getData = () => {
-    fetch("https://firstaidbox-admin-sigma.vercel.app/api/v1/orders")
+    fetch(
+      `https://firstaidbox-admin-sigma.vercel.app/api/v1/orders?page=${currentPage}&limit=${perPage}`
+    )
       .then((res) => res.json())
       .then((data) => setOrders(data));
   };
@@ -40,6 +49,11 @@ const Orders = () => {
   useEffect(() => {
     getData();
   }, []);
+
+  const pageChange = (pageNo) => {
+    setCurrentPage(pageNo + 1);
+    getData();
+  };
 
   const rejectOrder = (id) => {
     console.log(id);
@@ -118,7 +132,7 @@ const Orders = () => {
                 <tbody className='divide-y divide-[#292929]'>
                   {orders?.data?.data?.map((order) => {
                     return (
-                      <tr className='my-auto'>
+                      <tr key={order?._id} className='my-auto'>
                         <td className='py-4'>
                           <div className='ml-4'>
                             <div className='text-sm leading-5 font-medium text-[#1B1B1B]'>
@@ -202,8 +216,15 @@ const Orders = () => {
                   {/* <!-- More table rows go here --> */}
                 </tbody>
               </table>
-              <div></div>
             </div>
+          </div>
+          <div>
+            <PaginationButtons
+              // totalPages={orders?.data?.meta?.total}
+              totalPages={Math.ceil(orders?.data?.meta?.total / perPage)}
+              currentPage={2}
+              pageChange={pageChange}
+            ></PaginationButtons>
           </div>
         </div>
         <OrderDetailsModal
