@@ -16,8 +16,7 @@ const Footer = () => {
           <div className="lg:w-[35%] w-full flex flex-col justify-between gap-8 bg-[#FFF] lg:p-14 md:p-8 p-3 rounded-md">
             <Image className="w-[150px]" src={banner} alt="" />
             <p>
-              ফাস্ট এইড বাক্সটির কোনো পন্য আপনার প্রয়জন হলে আমাদের শপ থেকে নিতে
-              পারেন
+            ফাস্ট এইড বক্সের যেকোনো পণ্য আলাদাভাবে প্রয়োজন হলে আমাদের শপ থেকে সংগ্রহ করতে পারবেন। 
             </p>
             <div className="flex lg:justify-start justify-center items-center w-full">
               <button className="px-5 py-3 bg-[#2ACB35] rounded-md text-[#FFF] w-[220px] font-semibold text-[24px]">
@@ -85,7 +84,7 @@ const Footer = () => {
             <span>
               <FaLocationDot className="text-[28px]" />
             </span>
-            <h2>Mohila Collage Road, Khagrachari-Sadar</h2>
+            <h2>ঠিকানা: শান্তিনগর, বাস স্টেশন রোড, খাগড়াছড়ি সদর</h2>
           </div>
         </div>
       </Container>

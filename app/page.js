@@ -11,6 +11,7 @@ import Faq from './_components/_faq/Faq'
 import CheckOut from './_components/_checkOutPage/CheckOut'
 import Footer from './_components/_footer/Footer'
 import Email from './_components/_email/Email'
+import FirstAidBoxBenefits from './_components/_firstAidBoxBenefits/FirstAidBoxBenefits'
 
 
 const page = () => {
@@ -22,10 +23,11 @@ const page = () => {
       </div>
       <Banner />
       <WhyFristAid />
-      <WhyBuy />
-      <Order />
       <FirstAidBox />
+      <Order />
+      <WhyBuy />
       <ProductDetails />
+      <FirstAidBoxBenefits/>
       <CheckOut />
       <Faq />
       <Email />

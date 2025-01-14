@@ -13,11 +13,11 @@ const Banner = () => {
       <div className="max-w-container mx-auto px-[15px] flex flex-col md:flex-row items-center gap-y-10 md:gap-x-3">
         <div className="w-full md:w-[50%] relative">
           <Image src={bannerarrow} className="absolute z-[999] right-[-150px] top-[-30px] w-[200px] h-auto hidden md:block" alt="banner arrow" />
-          <h1 className="text-[60px] leading-[70px] md:leading-[130px] md:text-[70px]  font-extrabold text-center md:text-left">
+          <h1 className="text-[60px] leading-[70px] md:leading-[100px] md:text-[70px]  font-extrabold text-center md:text-left">
             অল্প খরচে প্রাথমিক রোগ নিরাময়ের তাৎক্ষণিক সমাধান
           </h1>
           <h4 className="text-[25px] font-semibold text-p-ash mt-5 text-center md:text-left">
-            দ্রুত ও নির্ভরযোগ্য প্রাথমিক চিকিৎসার তাৎক্ষণিক সমাধান হচ্ছে আমাদের এই ‘ফার্স্ট এইড বক্স’
+            দ্রুত ও নির্ভরযোগ্য প্রাথমিক চিকিৎসার তাৎক্ষণিক সমাধান হচ্ছে আমাদের এই ‘ফাস্ট  এইড বক্স’
           </h4>
           <div className="mt-7 flex justify-center md:justify-start">
             <Link href={'#orderNow'} >

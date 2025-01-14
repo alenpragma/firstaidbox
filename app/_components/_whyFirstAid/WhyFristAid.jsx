@@ -8,7 +8,7 @@ const WhyFristAid = () => {
       icon: "https://i.postimg.cc/K8ckxGKf/5972292-blood-disease-fluid-infection-transmission-icon-1.png",
       heading: "হঠাৎ রক্তক্ষরণ বন্ধের জন্য",
       description:
-        "রক্তক্ষরণ বন্ধ করার জন্য ফার্স্ট এইড বক্স সাথে থাকলে বিপদের সময় বিচলিত হতে হয়না।",
+        "রক্তক্ষরণ বন্ধ করার জন্য ফাস্ট এইড বক্স সাথে থাকলে বিপদের সময় বিচলিত হতে হয়না।",
     },
     {
       icon: "https://i.postimg.cc/vHtgJgmD/5875818-blood-cell-disease-infect-lab-icon-1.png",
@@ -20,7 +20,7 @@ const WhyFristAid = () => {
       icon: "https://i.postimg.cc/q7zN61xC/5958961-avatar-fever-sick-temperature-thermometure-icon-1.png",
       heading: "সর্দি-কাশির চিকিৎসার জন্য",
       description:
-        "প্রাথমিক পর্যায়ে সর্দি-কাশির চিকিৎসা করা যাবে একটি ফার্স্ট এইড বক্স থাকলে।",
+        "প্রাথমিক পর্যায়ে সর্দি-কাশির চিকিৎসা করা যাবে একটি ফাস্ট  এইড বক্স থাকলে।",
     },
     {
       icon: "https://i.postimg.cc/YqHLDfMJ/5859949-accident-foot-injury-leg-pain-icon-1.png",
@@ -32,7 +32,7 @@ const WhyFristAid = () => {
       icon: "https://i.postimg.cc/bw6Gv7kh/6673749-emergency-health-healthcare-hospital-kit-icon-1.png",
       heading: "জরুরী পরিস্থিতি মোকাবেলার জন্য",
       description:
-        "জরুরী পরিস্থিতিতে অনেক সময় একটা ফার্স্ট এইড বক্স জীবন রক্ষা করতে পারে।",
+        "জরুরী পরিস্থিতিতে অনেক সময় একটা ফাস্ট  এইড বক্স জীবন রক্ষা করতে পারে।",
     },
     {
       icon: "https://i.postimg.cc/7P7TNQ83/6088629-bacteria-find-germs-scan-search-icon-1.png",
@@ -46,7 +46,7 @@ const WhyFristAid = () => {
     <div className="py-[50px] md:py-[90px] bg-lime">
       <Container>
         <h1 className="text-[40px] md:text-[60px] lg:text-[80px]  font-bold pb-[20px] md:pb-[40px]">
-          কেনো ফার্স্ট এইড বক্স <br /> প্রয়োজন?
+          কেনো ফাস্ট এইড বক্স <br /> প্রয়োজন?
         </h1>
         <div className="flex flex-col md:flex-row gap-y-4 md:gap-6 justify-between flex-wrap">
           {whyFirstAidData.map((item, index) => (
