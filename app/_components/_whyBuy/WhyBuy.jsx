@@ -19,7 +19,7 @@ const WhyBuy = () => {
     {
         icon:"https://i.postimg.cc/XNwt046p/providing-first-aid-park-man-bandaged-injured-arm-guy-helps-friend-1.png",
         heading:"ঘা পাঁচড়া শুকাতে ক্যালেন্ডুলার ব্যবহার ",
-        description:"আমাদের ফার্স্ট এইড বক্সে থাকা ক্যালেন্ডুলা মাদার টিংচার লিকুইড ব্যবহারের ফলে দ্রুত যেকোন ঘা-পাঁচড়া শুকিয়ে যায়। তাই একটি বক্স পরিবারের হোম ডক্টর হিসেবে কাজ করে।"
+        description:"আমাদের ফাস্ট এইড বক্সে থাকা ক্যালেন্ডুলা মাদার টিংচার লিকুইড ব্যবহারের ফলে দ্রুত যেকোন ঘা-পাঁচড়া শুকিয়ে যায়। তাই একটি বক্স পরিবারের হোম ডক্টর হিসেবে কাজ করে।"
     },
     {
            icon:"https://i.postimg.cc/4dcqyTK2/close-up-sportsman-with-knee-sprain-1098-3227-1.png",
