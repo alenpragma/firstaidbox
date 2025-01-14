@@ -67,7 +67,7 @@ const FirstAidBox = () => {
     <div className="py-[50px] md:py-[90px] bg-[#F5F5F5]">
       <Container>
         <h2 className="text-[#1E1E1E] lg:text-7xl md:text-5xl text-3xl font-bold text-center my-8">
-          ফাস্ট এইড বাক্সটিতে যা যা পাচ্ছেন
+          ফাস্ট এইড বক্সটিতে যা যা পাচ্ছেন
         </h2>
         <div className="lg:flex justify-between items-center w-full">
           <div className="flex flex-col gap-5 lg:w-[30%] w-[90%]">
