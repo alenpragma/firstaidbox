@@ -7,7 +7,7 @@ const Email = () => {
       <Container>
         <div className="w-full lg:flex justify-between items-center">
           <div className="lg:w-[30%] w-full text-center text-4xl font-semibold text-[#1E1E1E]">
-            <h2>স্বাস্থ্য সম্পর্কে পরামর্শ পেতে সাবস্ক্রাইব করুন</h2>
+            <h2>স্বাস্থ্যবিষয়ক পরামর্শ ও আপডেট পেতে সাবস্ক্রাইব করুন</h2>
           </div>
           <div className="lg:w-[60%] w-full flex items-center relative lg:mt-0 mt-5">
             <input className="w-full px-6 py-4 outline-1 outline-[#2ACB35] border border-[#2ACB35] rounded-full text-[18px]" type="text" />

@@ -73,7 +73,7 @@ const Footer = () => {
             <span>
               <IoMdCall className="text-[28px]" />
             </span>
-            <h2>+880 1816 575 225</h2>
+            <h2>+880 1511 899 175</h2>
           </div>
           <div className="flex justify-start items-center gap-3 lg:mt-0 mt-5">
             <span>
@@ -89,9 +89,9 @@ const Footer = () => {
           </div>
         </div>
       </Container>
-      <div className="text-center font-semibold bg-[#777] py-10">
+      <div className="text-center font-semibold bg-[#777] py-6">
         <p className="text-[14px] text-[#fff]">
-          all Right Reserved Good Morning Aid
+        © 2025 Goodmorning Aid®. All rights reserved. Unauthorized duplication or distribution is prohibited.
         </p>
       </div>
     </div>
