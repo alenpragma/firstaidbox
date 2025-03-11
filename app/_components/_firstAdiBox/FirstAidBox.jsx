@@ -10,7 +10,7 @@ import kalmeg from "../../../public/first-aid-img/calmeg.jpg";
 import freeben from "../../../public/first-aid-img/freeben.jpg";
 import justicia from "../../../public/first-aid-img/justicia.jpg";
 import siger from "../../../public/first-aid-img/siger.jpg";
-import firstaidkit from "../../../public/first-aid-img/firstaidbox.png";
+import firstaidkit from "../../assets/img/p-03.png";
 import Image from "next/image";
 
 const firstAidKitName = [

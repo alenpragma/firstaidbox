@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import bannerarrow from "../../_svg/bannerarrow.svg";
 import bannerdot from "../../_svg/bannerdot.svg";
-import bag from "../../_svg/bag.svg";
+import bag from "../../assets/img/p-03.png";
 import band from "../../_svg/band.svg";
 import "./banner.css";
 import Link from "next/link";

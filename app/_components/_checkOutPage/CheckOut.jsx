@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Container from "../container/Container";
-import firstairimage from "../../../public/first-aid-img/firstaidbox.png";
+import firstairimage from "../../assets/img/p-03.png";
 import bkash from "../../../public/first-aid-img/bkash.png";
 import rocket from "../../../public/first-aid-img/rocket.png";
 import cashDelevery from "../../../public/first-aid-img/cash.png";
