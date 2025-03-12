@@ -7,18 +7,24 @@ import rocket from "../../../public/first-aid-img/rocket.png";
 import cashDelevery from "../../../public/first-aid-img/cash.png";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
+import { Copy } from "lucide-react";
 
 const CheckOut = () => {
 
   const [count, setCount] = useState(1);
   const [total, setTotal] = useState('');
-  const [totalPrice, setTotalPrice] = useState(1500);
+  const [totalPrice, setTotalPrice] = useState(1800);
   const [delivery, setdelivery] = useState(0);
   const [discountPrice, setDiscountPrice] = useState(0);
   const [tax, setTax] = useState(0);
-  const [singlePrice, setSinglePrice] = useState(1500);
+  const [singlePrice, setSinglePrice] = useState(1800);
 
 
+  const copyToClipboard = () => {
+    const mobileNumber = "01685720308";
+    navigator.clipboard.writeText(mobileNumber);
+    alert("Copied to clipboard: " + mobileNumber);
+  };
 
 
   const [payment, setPayment] = useState('');
@@ -306,15 +312,26 @@ const CheckOut = () => {
                 <btutton className="w-[150px] bg-white rounded p-2 cursor-pointer">
                   <Image className="w-full" src={rocket} alt="" />
                 </btutton> */}
+                <div className="">
+                <p>
+                To confirm your order, send 200 Taka in advance via bKash or Nagad to <span className="flex gap-2">01685720308 <Copy
+                  size={20} 
+                  className="cursor-pointer text-gray-600 hover:text-black"
+                  onClick={copyToClipboard}
+                /></span>
+                </p>
+               
+                </div>
+                
 
-                  <div
+                  {/* <div
 
                     onClick={() => handlePaymentSelection('Cash')}
                     // onClick={(e) => setOrderData(prevData => ({ ...prevData, payment: 'Cash' }))}
                     className={`${payment == "Cash" && "border-2 border-black"} w-[150px]  bg-white rounded p-2 cursor-pointer`}>
 
                     <Image className="w-full" src={cashDelevery} alt="" />
-                  </div>
+                  </div> */}
 
                 </div>
               </div>

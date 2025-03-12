@@ -20,9 +20,9 @@ const Footer = () => {
 
             </p>
             <div className="flex lg:justify-start justify-center items-center w-full">
-              <button className="px-5 py-3 bg-[#2ACB35] rounded-md text-[#FFF] w-[220px] font-semibold text-[24px]">
+              <a href='https://goodmorningaidbd.com/' className="px-5 py-3 bg-[#2ACB35] rounded-md text-[#FFF] w-[220px] font-semibold text-[24px]">
                 Shop Now
-              </button>
+              </a>
             </div>
           </div>
           <div className="lg:w-[70%] md:w-full w-full lg:flex justify-between gap-5 relative bg-[#EAEAEA] lg:border-l-[16px] border-l-0 border-[#2ACB35] lg:p-14 md:p-8 p-3 border-b-2">
