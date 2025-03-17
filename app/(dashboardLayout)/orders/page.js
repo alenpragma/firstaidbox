@@ -2,15 +2,13 @@
 
 import { useEffect, useState } from "react";
 import Modal from "./Modal";
-import App from "./Pagination";
-import OrderDetailsModal from "@/app/_components/dashboardLayout/orderDetailsModal";
+// import OrderDetailsModal from "@/app/_components/dashboardLayout/OrderDetailsModal";
+
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [detailsModal, setDetailsModal] = useState(false);
-
   const [modalOpen, setModalOpen] = useState(false);
-
   const [id, setId] = useState();
   const [data, setData] = useState();
 
@@ -206,11 +204,11 @@ const Orders = () => {
             </div>
           </div>
         </div>
-        <OrderDetailsModal
+        {/* <OrderDetailsModal
           data={data}
           isOpen={detailsModal}
           onClose={closeDetailsModal}
-        />
+        />  */}
         <Modal
           id={id}
           getData={getData}
