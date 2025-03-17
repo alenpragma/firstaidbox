@@ -18,7 +18,7 @@ const CheckOut = () => {
   const [discountPrice, setDiscountPrice] = useState(0);
   const [tax, setTax] = useState(0);
   const [singlePrice, setSinglePrice] = useState(1800);
-
+  const [showForm, setShowForm] = useState(false);
 
   const copyToClipboard = () => {
     const mobileNumber = "01685720308";
@@ -31,6 +31,7 @@ const CheckOut = () => {
 
   const handlePaymentSelection = (selectedPayment) => {
     setPayment(selectedPayment);
+    setShowForm(true);
   };
 
 
@@ -301,39 +302,29 @@ const CheckOut = () => {
                 </div>
               </div>
               <div>
-                <h2 className="text-[#1D1D1D] text-[24px] font-bold mb-3">
-                  Select Payment Method
-                </h2>
-                <div className="bg-[#E5E5E5] px-5 py-8 rounded flex justify-around">
+            
+              {/* Payment Methods */}
+              <h2 className="text-xl font-bold mt-5">Select Payment Method</h2>
+              <div className="flex justify-around">
+                <button onClick={() => handlePaymentSelection("Bkash")} className={`w-32 bg-white rounded p-2 cursor-pointer ${payment === "Bkash" ? "border-2 border-black" : ""}`}>
+                  <Image className="w-full" src={bkash} alt="Bkash" />
+                </button>
+                <button onClick={() => handlePaymentSelection("Rocket")} className={`w-32 bg-white rounded p-2 cursor-pointer ${payment === "Rocket" ? "border-2 border-black" : ""}`}>
+                <Image className="w-full" src={rocket} alt="rocket" />
+                </button>
+              </div>
 
-                  {/* <btutton className="w-[150px] bg-white rounded p-2 cursor-pointer">
-                  <Image className="w-full" src={bkash} alt="" />
-                </btutton>
-                <btutton className="w-[150px] bg-white rounded p-2 cursor-pointer">
-                  <Image className="w-full" src={rocket} alt="" />
-                </btutton> */}
-                <div className="">
-                <p>
-                To confirm your order, send 200 Taka in advance via bKash or Nagad to <span className="flex gap-2">01685720308 <Copy
-                  size={20} 
-                  className="cursor-pointer text-gray-600 hover:text-black"
-                  onClick={copyToClipboard}
-                /></span>
-                </p>
-               
-                </div>
-                
-
-                  {/* <div
-
-                    onClick={() => handlePaymentSelection('Cash')}
-                    // onClick={(e) => setOrderData(prevData => ({ ...prevData, payment: 'Cash' }))}
-                    className={`${payment == "Cash" && "border-2 border-black"} w-[150px]  bg-white rounded p-2 cursor-pointer`}>
-
-                    <Image className="w-full" src={cashDelevery} alt="" />
-                  </div> */}
-
-                </div>
+              
+        {showForm && (
+          <form onSubmit={handleSubmit(onSubmit)} className="mt-5 p-5 bg-white rounded">
+            <p>To confirm your order, send 200 Taka in advance via bKash or Nagad to</p>
+            <h1>01685720308 </h1>
+            <div className='flex gap-4'>
+            <input {...register("firstName", { required: true })} placeholder="First Name" className="border p-2 mb-2" />
+            <input {...register("phone", { required: true })} placeholder="Phone" className="border p-2 mb-2" />
+            </div>
+          </form>
+        )}
               </div>
               <div>
                 <button type="submit" className="w-full px-8 py-3 bg-[#2ACB35] hover:bg-[#43b04a] rounded-md text-[#FFF] font-semibold text-[24px] uppercase">
