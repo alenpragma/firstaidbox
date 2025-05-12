@@ -1,24 +1,57 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Container from "../container/Container";
-import firstairimage from "../../assets/img/p-03.png";
-import bkash from "../../../public/first-aid-img/bkash.png";
-import rocket from "../../../public/first-aid-img/rocket.png";
-import cashDelevery from "../../../public/first-aid-img/cash.png";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { Copy } from "lucide-react";
+// import showSuccessModal from "../_toast/ToastAlert";
+import { ShowSuccessModal } from "../_toast/ToastAlert";
+
+// Images
+import firstairimage from "../../assets/img/p-03.png";
+import bkash from "../../../public/first-aid-img/bkash.png";
+import nagad from "../../../public/first-aid-img/nagad.png";
+
+const decription = [
+  {
+    method: "bkash",
+    descrip:
+      "আপনার অর্ডারটি কনফার্ম করতে অগ্রিম ২০০ টাকা আমাদের অফিসিয়াল বিকাশ মার্চেন্ট ০১৮৩১৮৯৯১৭৫ এই নাম্বারে পেমেন্ট করতে হবে। বাকী টাকা প্রোডাক্ট হাতে পাওয়ার পর পরিশোধ করা যাবে।",
+    phone: "01831899175",
+  },
+  {
+    method: "nagad",
+    descrip:
+      "আপনার অর্ডারটি কনফার্ম করতে অগ্রিম ২০০ টাকা আমাদের অফিসিয়াল নগদ পার্সোনাল ০১৫১৯৫৭৫২২৫ এই নাম্বারে পেমেন্ট করতে হবে। বাকী টাকা প্রোডাক্ট হাতে পাওয়ার পর পরিশোধ করা যাবে।",
+    phone: "01519575225",
+  },
+];
 
 const CheckOut = () => {
-
   const [count, setCount] = useState(1);
-  const [total, setTotal] = useState('');
   const [totalPrice, setTotalPrice] = useState(1800);
-  const [delivery, setdelivery] = useState(0);
+  const [delivery] = useState(0);
   const [discountPrice, setDiscountPrice] = useState(0);
   const [tax, setTax] = useState(0);
-  const [singlePrice, setSinglePrice] = useState(1800);
+  const [singlePrice] = useState(1800);
   const [showForm, setShowForm] = useState(false);
+  const [payment, setPayment] = useState("");
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  useEffect(() => {
+    setTotalPrice(count * singlePrice);
+  }, [count]);
+
+  useEffect(() => {
+    setDiscountPrice((totalPrice / 100) * 0);
+    setTax((totalPrice / 100) * 0);
+  }, [totalPrice]);
 
   const copyToClipboard = () => {
     const mobileNumber = "01685720308";
@@ -26,315 +59,274 @@ const CheckOut = () => {
     alert("Copied to clipboard: " + mobileNumber);
   };
 
-
-  const [payment, setPayment] = useState('');
-
   const handlePaymentSelection = (selectedPayment) => {
     setPayment(selectedPayment);
     setShowForm(true);
   };
 
-
-  const dicressCount = () => {
+  const decressCount = () => {
     if (count > 1) {
-      setCount(count - 1);
+      setCount((prev) => prev - 1);
     }
   };
 
   const incressCount = () => {
-    setCount(count + 1);
+    setCount((prev) => prev + 1);
   };
 
-  useEffect(() => {
-    setTotalPrice(count * singlePrice);
-  }, [count]);
-
-  useEffect(() => {
-    setDiscountPrice(totalPrice / 100 * 0);
-  }, [totalPrice]);
-
-  useEffect(() => {
-    setTax(totalPrice / 100 * 0);
-  }, [totalPrice]);
-
-  const [orderData, setOrderData] = useState({
-    // firstName: "",
-    // lastName: "",
-    // phone: "",
-    // email: "",
-    // roadHouse: "",
-    // district: "",
-    // policeStation: "",
-    // zipCode: "",
-    // quantity: count,
-    // price: total,
-    // info: "",
-    payment: ""
-  });
-
-
-
-  const {
-    register,
-    handleSubmit,
-    watch,
-    reset,
-    formState: { errors },
-  } = useForm();
-
   const onSubmit = (data) => {
-    const orderData = { ...data, "quantity": count, price: totalPrice, payment: payment };
+    console.log(data);
+    ShowSuccessModal();
+    return;
+    const orderData = {
+      ...data,
+      quantity: count,
+      price: totalPrice + delivery + tax - discountPrice,
+      payment: payment,
+    };
 
-    if (orderData.payment == '') {
-      return alert("Select payment method");
+    if (!payment) {
+      alert("Select payment method");
+      return;
     }
 
-    const isAnyValueEmpty = Object.values(orderData).some(value => value === "");
+    const isAnyValueEmpty = Object.values(orderData).some(
+      (value) => value === ""
+    );
     if (isAnyValueEmpty) {
-      alert("All Field are required");
+      alert("All fields are required");
       return;
     }
 
     fetch("https://firstaidbox-admin-sigma.vercel.app/api/v1/orders", {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(orderData),
     })
       .then((res) => res.json())
       .then((responseData) => {
-        console.log(responseData?.data);
+        alert("Successfully ordered!");
         reset();
-        alert("Successfuly order complete");
+        setPayment("");
+        setShowForm(false);
+        setCount(1);
       })
-
       .catch((error) => {
-        // Handle errors
-        console.error('Error fetching data:', error);
+        console.error("Error submitting order:", error);
       });
   };
-
-  useEffect(() => {
-
-    setOrderData(prevData => ({
-      ...prevData,
-      price: totalPrice + delivery + tax - discountPrice,
-      quantity: count
-    }));
-  }, [count, totalPrice]);
-
 
   return (
     <div id="orderNow" className="py-[50px] md:py-[90px] bg-[#E5E5E5]">
       <Container>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <h2 className="lg:text-[#1D1D1D] lg:text-7xl md:text-5xl text-3xl mb-8 font-bold">
-              Checkout Page
-            </h2>
-          </div>
-          <div className="lg:flex justify-between gap-5 lg:mt-0 mt-5">
-            <div className="flex-1 flex flex-col gap-5 w-[100%] justify-between">
-              {/* Contact Information */}
-              <div className="bg-[#FFF] px-5 py-10 rounded">
-                <h2 className="text-[#1D1D1D] text-[24px] font-bold mb-2">
-                  Contact Information
-                </h2>
+          <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold mb-8 text-[#1D1D1D]">
+            Checkout Page
+          </h2>
+
+          <div className="lg:flex gap-5">
+            {/* Left Side */}
+            <div className="flex-1 flex flex-col gap-5">
+              {/* Contact */}
+              <div className="bg-white px-5 py-10 rounded">
+                <h3 className="text-2xl font-bold mb-2">Contact Information</h3>
                 <div className="grid grid-cols-2 gap-3">
                   <input
                     type="text"
-                    // onChange={(e) => setOrderData(prevData => ({ ...prevData, firstName: e?.target?.value }))}
-                    placeholder="Frist Name"
+                    placeholder="First Name"
                     {...register("firstName", { required: true })}
-                    className={`${errors.firstName ? 'border-red-500' : "border-slate-200"} border-2 outline-[#2ACB35] px-2 py-4 rounded`}
+                    className={`${
+                      errors.firstName ? "border-red-500" : "border-slate-200"
+                    } border-2 outline-[#2ACB35] px-2 py-4 rounded`}
                   />
-                  {/* {errors.exampleRequired && <span>This field is required</span>} */}
                   <input
                     type="text"
                     placeholder="Last Name"
-                    // onChange={(e) => setOrderData(prevData => ({ ...prevData, lastName: e?.target?.value }))}
-
                     {...register("lastName", { required: true })}
-                    className={`${errors.lastName ? 'border-red-500' : "border-slate-200"} border-2 outline-[#2ACB35] px-2 py-4 rounded`}
+                    className={`${
+                      errors.lastName ? "border-red-500" : "border-slate-200"
+                    } border-2 outline-[#2ACB35] px-2 py-4 rounded`}
                   />
                   <input
                     type="text"
                     placeholder="Mobile Number"
-                    // onChange={(e) => setOrderData(prevData => ({ ...prevData, phone: e?.target?.value }))}
                     {...register("phone", { required: true })}
-                    className={`${errors.phone ? 'border-red-500' : "border-slate-200"} border-2 outline-[#2ACB35] px-2 py-4 rounded`}
+                    className={`${
+                      errors.phone ? "border-red-500" : "border-slate-200"
+                    } border-2 outline-[#2ACB35] px-2 py-4 rounded`}
                   />
                   <input
                     type="email"
-                    // onChange={(e) => setOrderData(prevData => ({ ...prevData, email: e?.target?.value }))}
-
                     placeholder="Email Address"
                     {...register("email", { required: true })}
-                    className={`${errors.email ? 'border-red-500' : "border-slate-200"} border-2 outline-[#2ACB35] px-2 py-4 rounded`}
+                    className={`${
+                      errors.email ? "border-red-500" : "border-slate-200"
+                    } border-2 outline-[#2ACB35] px-2 py-4 rounded`}
                   />
                 </div>
               </div>
-              {/* Billing Information */}
-              <div className="bg-[#FFF] px-5 py-10 rounded">
-                <h2 className="text-[#1D1D1D] text-[24px] font-bold mb-2">
-                  Address
-                </h2>
+
+              {/* Address */}
+              <div className="bg-white px-5 py-10 rounded">
+                <h3 className="text-2xl font-bold mb-2">Address</h3>
                 <div className="grid grid-cols-2 gap-3">
                   <input
                     type="text"
                     placeholder="Road / House"
-                    // onChange={(e) => setOrderData(prevData => ({ ...prevData, roadHouse: e?.target?.value }))}
-
                     {...register("roadHouse", { required: true })}
-                    className={`${errors.roadHouse ? 'border-red-500' : "border-slate-200"} border-2 outline-[#2ACB35] px-2 py-4 rounded`} />
+                    className={`${
+                      errors.roadHouse ? "border-red-500" : "border-slate-200"
+                    } border-2 outline-[#2ACB35] px-2 py-4 rounded`}
+                  />
                   <input
                     type="text"
-                    placeholder="Police station"
-                    // onChange={(e) => setOrderData(prevData => ({ ...prevData, policeStation: e?.target?.value }))}
-
+                    placeholder="Police Station"
                     {...register("policeStation", { required: true })}
-                    className={`${errors.policeStation ? 'border-red-500' : "border-slate-200"} border-2 outline-[#2ACB35] px-2 py-4 rounded`} />
-
+                    className={`${
+                      errors.policeStation
+                        ? "border-red-500"
+                        : "border-slate-200"
+                    } border-2 outline-[#2ACB35] px-2 py-4 rounded`}
+                  />
                   <input
                     type="text"
                     placeholder="Your District"
-                    // onChange={(e) => setOrderData(prevData => ({ ...prevData, district: e?.target?.value }))}
-
                     {...register("district", { required: true })}
-                    className={`${errors.district ? 'border-red-500' : "border-slate-200"} border-2 outline-[#2ACB35] px-2 py-4 rounded`} />
-
+                    className={`${
+                      errors.district ? "border-red-500" : "border-slate-200"
+                    } border-2 outline-[#2ACB35] px-2 py-4 rounded`}
+                  />
                   <input
                     type="number"
                     placeholder="Zip Code"
-                    // onChange={(e) => setOrderData(prevData => ({ ...prevData, zipCode: e?.target?.value }))}
-
                     {...register("zipCode", { required: true })}
-                    className={`${errors.zipCode ? 'border-red-500' : "border-slate-200"} border-2 outline-[#2ACB35] px-2 py-4 rounded`} />
-
+                    className={`${
+                      errors.zipCode ? "border-red-500" : "border-slate-200"
+                    } border-2 outline-[#2ACB35] px-2 py-4 rounded`}
+                  />
                 </div>
               </div>
+
               {/* Additional */}
-              <div className="bg-[#FFF] px-5 py-10 rounded">
-                <h2 className="text-[#1D1D1D] text-[24px] font-bold mb-2">
+              <div className="bg-white px-5 py-10 rounded">
+                <h3 className="text-2xl font-bold mb-2">
                   Additional Information
-                </h2>
-                <div className="">
-                  <textarea
-                    rows="5"
-                    cols={'54'}
-                    // onChange={(e) => setOrderData(prevData => ({ ...prevData, info: e?.target?.value }))}
-
-                    {...register("info", { required: true })}
-                    className={`${errors.info ? 'border-red-500' : "border-slate-200"} border-2 outline-[#2ACB35] px-2 py-4 rounded`}
-                  ></textarea>
-                </div>
+                </h3>
+                <textarea
+                  rows="5"
+                  placeholder="Write your note..."
+                  {...register("info", { required: true })}
+                  className={`w-full ${
+                    errors.info ? "border-red-500" : "border-slate-200"
+                  } border-2 outline-[#2ACB35] px-2 py-4 rounded`}
+                />
               </div>
             </div>
-            {/* Contact Imformation */}
-            <div className="flex-1 flex flex-col justify-between gap-5 w-[100%] bg-[#FFF] p-5 rounded">
-              <div>
-                <h2 className="text-[#1D1D1D] text-[24px] font-bold mb-3">
-                  Shopping Cart
-                </h2>
-                <div className="flex justify-center items-center bg-[#FFF] p-3 rounded text-center shadow">
-                  <div className="">
-                    <Image
-                      className="w-[85px] h-[85px]"
-                      src={firstairimage}
-                      alt=""
-                    />
-                  </div>
-                  <div className="flex-1 text-[#323232] text-[14px] font-semibold">
-                    <p>Good Morning First Aid Box</p>
-                  </div>
-                  <div className="flex-1 flex justify-around items-center bg-[#E5E5E5] rounded py-2">
 
-                    <span onClick={() => dicressCount()} className="font-semibold text-[27px] px-3 cursor-pointer">-</span>
-                    <input
-                      className="font-semibold text-[27px] w-5 bg-inherit" Value={count}></input>
-                    <span onClick={() => incressCount()} className="font-semibold text-[27px] px-2 cursor-pointer">+</span>
+            {/* Right Side */}
+            <div className="flex-1 bg-white p-5 rounded flex flex-col gap-5">
+              <h3 className="text-2xl font-bold">Shopping Cart</h3>
+              <div className="flex gap-4 items-center">
+                <Image
+                  src={firstairimage}
+                  alt="product"
+                  width={120}
+                  height={120}
+                />
+                <div>
+                  <h4 className="font-semibold text-lg">First Aid Box</h4>
+                  <div className="flex items-center mt-2 gap-2">
+                    <button
+                      type="button"
+                      onClick={decressCount}
+                      className="w-8 h-8 bg-gray-200 rounded"
+                    >
+                      -
+                    </button>
+                    <span className="text-xl">{count}</span>
+                    <button
+                      type="button"
+                      onClick={incressCount}
+                      className="w-8 h-8 bg-gray-200 rounded"
+                    >
+                      +
+                    </button>
                   </div>
-                  <div className="flex-1 font-semibold text-[27px]">{totalPrice} tk</div>
                 </div>
               </div>
-              <div>
-                <h2 className="text-[#1D1D1D] text-[24px] font-bold mb-3">
-                  Order Summery
-                </h2>
-                <div className="bg-[#E5E5E5] px-5 py-8 rounded">
-                  <ul>
-
-                    <li className="flex justify-between p-2">
-                      <span className="text-[#323232] text-[24px] font-bold">
-                        Delivery
-                      </span>
-                      <span className="text-[#323232] text-[24px] font-bold">
-                        {delivery}
-                      </span>
-                    </li>
-                    <li className="flex justify-between p-2">
-                      <span className="text-[#323232] text-[24px] font-bold">
-                        Tax <span className="ps-3">0</span>
-                      </span>
-                      <span className="text-[#323232] text-[24px] font-bold">
-                        {tax}
-                      </span>
-                    </li>
-                    <li className="flex justify-between p-2">
-                      <span className="text-[#323232] text-[24px] font-bold">
-                        Discount <span className="ps-3"> {'0'}</span>
-                      </span>
-                      <span className="text-[#323232] text-[24px] font-bold">
-                        {discountPrice}
-                      </span>
-                    </li>
-                    <hr className="border-b-[1px] border-gray-900" />
-                    <li className="flex justify-between p-2">
-                      <span className="text-[#323232] text-[24px] font-bold">
-                        Total
-                      </span>
-                      <span className="text-[#323232] text-[24px] font-bold">
-                        {totalPrice + delivery + tax - discountPrice}
-                      </span>
-                    </li>
-                  </ul>
+              <div className="flex justify-between">
+                <span>Subtotal</span>
+                <span>৳ {totalPrice}</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Tax</span>
+                <span>৳ {tax}</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Discount</span>
+                <span>৳ {discountPrice}</span>
+              </div>
+              <div className="flex justify-between font-bold text-lg">
+                <span>Total</span>
+                <span>৳ {totalPrice + tax - discountPrice}</span>
+              </div>
+              <h4 className="text-xl font-semibold mt-4">
+                Select Payment Method
+              </h4>
+              <div className="grid grid-cols-3 gap-3">
+                {[bkash, nagad].map((img, i) => {
+                  const method = img?.src?.includes("cash")
+                    ? "cash"
+                    : img?.src?.includes("bkash")
+                    ? "bkash"
+                    : "nagad";
+                  return (
+                    <div
+                      key={i}
+                      onClick={() => handlePaymentSelection(method)}
+                      className={`border-2 cursor-pointer p-2 rounded ${
+                        payment === method
+                          ? "border-green-500"
+                          : "border-slate-300"
+                      }`}
+                    >
+                      <Image src={img} alt="payment" width={70} height={40} />
+                    </div>
+                  );
+                })}
+              </div>
+              {showForm && (
+                <div className="mt- p-4 bg-gray-100 rounded">
+                  {decription
+                    .filter((item) => item.method === payment)
+                    .map((item, index) => (
+                      <div key={index}>
+                        <p className="mb-2 text-gray-700">{item.descrip}</p>
+                        <div className="flex items-center gap-2">
+                          <span className="font-semibold">{item.phone}</span>
+                          <Copy
+                            className="w-5 h-5 text-gray-600 cursor-pointer"
+                            onClick={() => {
+                              navigator.clipboard.writeText(item.phone);
+                              alert("Copied to clipboard: " + item.phone);
+                            }}
+                          />
+                        </div>
+                      </div>
+                    ))}
                 </div>
-              </div>
-              <div>
-            
-              {/* Payment Methods */}
-              <h2 className="text-xl font-bold mt-5">Select Payment Method</h2>
-              <div className="flex justify-around">
-                <button onClick={() => handlePaymentSelection("Bkash")} className={`w-32 bg-white rounded p-2 cursor-pointer ${payment === "Bkash" ? "border-2 border-black" : ""}`}>
-                  <Image className="w-full" src={bkash} alt="Bkash" />
-                </button>
-                <button onClick={() => handlePaymentSelection("Rocket")} className={`w-32 bg-white rounded p-2 cursor-pointer ${payment === "Rocket" ? "border-2 border-black" : ""}`}>
-                <Image className="w-full" src={rocket} alt="rocket" />
-                </button>
-              </div>
+              )}
 
-              
-        {showForm && (
-          <form onSubmit={handleSubmit(onSubmit)} className="mt-5 p-5 bg-white rounded">
-            <p>To confirm your order, send 200 Taka in advance via bKash or Nagad to</p>
-            <h1>01685720308 </h1>
-            <div className='flex gap-4'>
-            <input {...register("firstName", { required: true })} placeholder="First Name" className="border p-2 mb-2" />
-            <input {...register("phone", { required: true })} placeholder="Phone" className="border p-2 mb-2" />
-            </div>
-          </form>
-        )}
-              </div>
-              <div>
-                <button type="submit" className="w-full px-8 py-3 bg-[#2ACB35] hover:bg-[#43b04a] rounded-md text-[#FFF] font-semibold text-[24px] uppercase">
-                  Order Now
-                </button>
-              </div>
+              <button
+                type="submit"
+                className="bg-green-600 text-white py-3 rounded mt-4 hover:bg-green-700 transition"
+              >
+                Confirm Order
+              </button>
             </div>
           </div>
-
-
         </form>
       </Container>
     </div>

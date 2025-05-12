@@ -2,9 +2,9 @@ import React from "react";
 import Container from "../container/Container";
 import { TiTick } from "react-icons/ti";
 import Image from "next/image";
-import img1 from "../../assets/img/p-02.png";
-import img2 from "../../assets/img/p-01.png";
-import img3 from "../../assets/img/p-04.png";
+import img1 from "../../../public/images/image-01.png";
+import img2 from "../../../public/images/image-03.png";
+import img3 from "../../../public/images/image-02.png";
 
 const productDetails = [
   {
@@ -55,8 +55,8 @@ const ProductDetails = () => {
             {productDetails.slice(0, 2).map((item) => (
               <div key={item.id} className="flex-1 bg-white rounded-md shadow-md">
                 <div className="px-8 pb-8 flex flex-col items-center gap-5">
-                  <div className="w-[206px] h-[250px] bg-[#2ACB35] px-5 pb-5 rounded-b-[50px] flex justify-center items-center">
-                    <Image className="w-full h-full rounded-b-[45px]" src={item.image} alt={item.title} />
+                  <div className="w-[250px] h-[250px] bg-[#2ACB35] px-5 pb-5 rounded-b-[50px] flex justify-center items-center">
+                    <Image className="rounded-b-[45px]" src={item.image} alt={item.title} />
                   </div>
                   <h2 className="text-[#1E1E1E] text-[28px] font-semibold text-center">{item.title}</h2>
                   <ul className="flex flex-col gap-3">
@@ -77,7 +77,7 @@ const ProductDetails = () => {
             {productDetails.slice(2).map((item) => (
               <div key={item.id} className="p-8 bg-white rounded-md shadow-md lg:flex items-center gap-5">
                 <div className="lg:w-1/3 w-full flex justify-center">
-                  <div className="w-[206px] h-[266px] bg-[#2ACB35] p-5 rounded-b-[50px] flex justify-center items-center">
+                  <div className="w-[250px] h-[266px] bg-[#2ACB35] p-5 rounded-b-[50px] flex justify-center items-center">
                     <Image className="w-full h-full rounded-b-[45px]" src={item.image} alt={item.title} />
                   </div>
                 </div>

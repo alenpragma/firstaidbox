@@ -13,50 +13,83 @@ import siger from "../../../public/first-aid-img/siger.jpg";
 import firstaidkit from "../../assets/img/p-03.png";
 import Image from "next/image";
 
+import image1 from "../../../public/images/img-01.jpg";
+import image2 from "../../../public/images/img-02.jpg";
+import image3 from "../../../public/images/img-03.jpg";
+import image4 from "../../../public/images/img-04.jpg";
+import image5 from "../../../public/images/img-05.jpg";
+import image6 from "../../../public/images/img-06.jpg";
+import image7 from "../../../public/images/img-07.jpg";
+import image8 from "../../../public/images/img-08.jpg";
+import image9 from "../../../public/images/img-09.jpg"; 
+import image10 from "../../../public/images/img-10.jpg";
+import image11 from "../../../public/images/img-11.jpg";
+import image12 from "../../../public/images/img-12.jpg";
+
+import bannerImage from "../../../public/images/box.png";
+
 const firstAidKitName = [
   {
-    img: cotton,
-    title: "কটন ব্যান্ডেজ",
-  },
-  {
-    img: compress,
-    title: "কমপ্রেস ব্যান্ডেজ",
-  },
-  {
-    img: calendula,
+    img: image1,
     title: "৩০ মিলি ক্যালেন্ডুলা",
   },
   {
-    img: thermometer,
-    title: "থার্মোমিটার",
-  },
-  {
-    img: bandeg,
-    title: "ওয়ান টাইম ব্যান্ডেজমিটার",
-  },
-  {
-    img: ruba,
-    title: "রুবা ওয়েন্টমেন্ট",
-  },
-  {
-    img: kalmeg,
+    img: image7,
     title: "৩০ মিলি কালমেঘ",
   },
   {
-    img: freeben,
-    title: "১ ফিব্রিন ট্যাবলেট",
+    img: image8,
+    title: "রুবা",
   },
   {
-    img: justicia,
+    img: image12,
+    title: "১ টি সিজার",
+  },
+  {
+    img: image4,
+    title: "অ্যালকোহল প্যাড",
+  },
+  {
+    img: image2,
+    title: "গজ ব্যান্ডেজ",
+  },
+
+
+  {
+    img: image9,
     title: "৩০ মিলি জাস্টিসিয়া",
   },
   {
-    img: siger,
-    title: "১ টি সিজার",
+    img: image10,
+    title: "টেমকন ১ বক্স",
   },
   {
-    img: siger,
-    title: "১ টি সিজার",
+    img: image3,
+    title: "ডিজিটাল থার্মোমিটার",
+  },
+  {
+    img: image5,
+    title: "ওয়ান টাইম ব্যান্ডেজ",
+  },
+  // {
+  //   img: compress,
+  //   title: "কমপ্রেস ব্যান্ডেজ",
+  // },
+  // {
+  //   img: bandeg,
+  //   title: "ওয়ান টাইম ব্যান্ডেজ",
+  // },
+  // {
+  //   img: cotton,
+  //   title: "কটন ব্যান্ডেজ",
+  // },
+  {
+    img: image6,
+    title: "তুলা",
+  },
+  {
+    img: image11,
+    title: "এইড বক্স",
   },
 ];
 
@@ -71,7 +104,7 @@ const FirstAidBox = () => {
         </h2>
         <div className="lg:flex justify-between items-center w-full">
           <div className="flex flex-col gap-5 lg:w-[30%] w-[90%]">
-            {firstAidKitName.slice(0, 5).map((item) => (
+            {firstAidKitName.slice(0, 6).map((item) => (
               <div className="w-full bg-[#FFF] rounded flex justify-between items-center relative lg:p-10 md:p-8 p-5">
                 <h2 className="text-[#1E1E1E] text-[24px]">{item.title}</h2>
                 <Image
@@ -83,12 +116,12 @@ const FirstAidBox = () => {
             ))}
           </div>
           <div className="lg:w-[30%] w-full">
-            <Image className="w-full" src={firstaidkit} alt="" />
+            <Image className="w-full" src={bannerImage} alt="" />
           </div>
           <div className="lg:w-[30%] w-[100%] flex justify-end">
             <div className="lg:w-full w-[90%] flex justify-end">
               <div className="flex flex-col items-center gap-5 w-[100%] mx-auto relative">
-                {firstAidKitName.slice(5, 10).map((item) => (
+                {firstAidKitName.slice(6, 12).map((item) => (
                   <div className="w-full bg-[#FFF] rounded flex flex-row-reverse justify-between items-center lg:p-10 md:p-8 p-5 relative">
                     <h2 className="text-[#1E1E1E] text-[24px] w-[80%]">
                       {item.title}

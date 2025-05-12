@@ -6,6 +6,7 @@ import bag from "../../assets/img/p-03.png";
 import band from "../../_svg/band.svg";
 import "./banner.css";
 import Link from "next/link";
+import bannerImage from "../../../public/images/banner.png"
 
 const Banner = () => {
   return (
@@ -29,7 +30,7 @@ const Banner = () => {
         </div>
         <div className="w-full md:w-[50%] relative overflow-hidden flex">
           <Image src={bannerdot} alt="banner-dot" className="w-full h-auto circle-anim scale-[2]" />
-          <Image src={bag} alt="banner-dot" className="w-[80%]   h-auto absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]" />
+          <Image src={bannerImage} alt="banner-dot" className="w-[60%]  h-auto absolute top-[47%] left-[50%] translate-x-[-50%] translate-y-[-50%]" />
           <Image src={band} alt="banner-dot" className="   absolute top-[0%]  left-[0%] md:left-[22%]" />
           <Image src={band} alt="banner-dot" className="   absolute bottom-7 right-7 " />
         </div>
