@@ -22,18 +22,18 @@ const decription = [
   {
     method: "nagad",
     descrip:
-      "আপনার অর্ডারটি কনফার্ম করতে অগ্রিম ২০০ টাকা আমাদের অফিসিয়াল নগদ পার্সোনাল ০১৫১৯৫৭৫২২৫ এই নাম্বারে পেমেন্ট করতে হবে। বাকী টাকা প্রোডাক্ট হাতে পাওয়ার পর পরিশোধ করা যাবে।",
-    phone: "01519575225",
+      "আপনার অর্ডারটি কনফার্ম করতে অগ্রিম ২০০ টাকা আমাদের অফিসিয়াল নগদ পার্সোনাল ০১৮১৬৫৭৫২২৫  এই নাম্বারে সেন্ড মানি করতে হবে। বাকী টাকা প্রোডাক্ট হাতে পাওয়ার পর পরিশোধ করা যাবে।",
+    phone: "01816575225",
   },
 ];
 
 const CheckOut = () => {
   const [count, setCount] = useState(1);
-  const [totalPrice, setTotalPrice] = useState(1800);
+  const [totalPrice, setTotalPrice] = useState(1500);
   const [delivery] = useState(0);
   const [discountPrice, setDiscountPrice] = useState(0);
   const [tax, setTax] = useState(0);
-  const [singlePrice] = useState(1800);
+  const [singlePrice] = useState(1500);
   const [showForm, setShowForm] = useState(false);
   const [payment, setPayment] = useState("");
 
