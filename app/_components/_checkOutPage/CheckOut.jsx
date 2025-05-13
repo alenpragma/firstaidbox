@@ -53,10 +53,14 @@ const CheckOut = () => {
     setTax((totalPrice / 100) * 0);
   }, [totalPrice]);
 
-  const copyToClipboard = () => {
-    const mobileNumber = "01685720308";
-    navigator.clipboard.writeText(mobileNumber);
-    alert("Copied to clipboard: " + mobileNumber);
+  const [copyTimeout, setCopyTimeout] = useState(false);
+
+  const copyToClipboard = (phone) => {
+    navigator.clipboard.writeText(phone);
+    setCopyTimeout(true);
+    setTimeout(() => {
+      setCopyTimeout(false);
+    }, 1000);
   };
 
   const handlePaymentSelection = (selectedPayment) => {
@@ -306,13 +310,18 @@ const CheckOut = () => {
                         <p className="mb-2 text-gray-700">{item.descrip}</p>
                         <div className="flex items-center gap-2">
                           <span className="font-semibold">{item.phone}</span>
-                          <Copy
-                            className="w-5 h-5 text-gray-600 cursor-pointer"
-                            onClick={() => {
-                              navigator.clipboard.writeText(item.phone);
-                              alert("Copied to clipboard: " + item.phone);
-                            }}
-                          />
+                          {copyTimeout ? (
+                            <span className="text-gray-500 cursor-pointer border border-green-300 px-4 py-1 rounded">
+                              Copied!
+                            </span>
+                          ) : (
+                            <span
+                              onClick={() => copyToClipboard(item.phone)}
+                              className="text-gray-500 cursor-pointer border border-green-300 px-4 py-1 rounded"
+                            >
+                              Copy
+                            </span>
+                          )}
                         </div>
                       </div>
                     ))}
