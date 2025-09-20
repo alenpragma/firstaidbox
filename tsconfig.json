@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "types/products/products.js", "lib/fetch/useGetData.js", "lib/fetch/AxiosInstance.js", "app/_components/_provider/Provider.jsx"  ],
   "exclude": [
     "node_modules"
   ]
