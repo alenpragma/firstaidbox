@@ -20,14 +20,19 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "types/products/products.js", "lib/fetch/useGetData.js", "lib/fetch/AxiosInstance.js", "app/_components/_provider/Provider.jsx"  ],
+    "**/*.tsx",
+    "types/products/products.js",
+    "lib/fetch/useGetData.js",
+    "lib/fetch/AxiosInstance.js",
+    "app/_components/_provider/Provider.jsx"
+  ],
   "exclude": [
     "node_modules"
   ]
