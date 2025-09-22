@@ -21,7 +21,7 @@ import image5 from "../../../public/images/img-05.jpg";
 import image6 from "../../../public/images/img-06.jpg";
 import image7 from "../../../public/images/img-07.jpg";
 import image8 from "../../../public/images/img-08.jpg";
-import image9 from "../../../public/images/img-09.jpg"; 
+import image9 from "../../../public/images/img-09.jpg";
 import image10 from "../../../public/images/img-10.jpg";
 import image11 from "../../../public/images/img-11.jpg";
 import image12 from "../../../public/images/img-12.jpg";
@@ -53,7 +53,6 @@ const firstAidKitName = [
     img: image2,
     title: "গজ ব্যান্ডেজ",
   },
-
 
   {
     img: image9,
@@ -104,8 +103,11 @@ const FirstAidBox = () => {
         </h2>
         <div className="lg:flex justify-between items-center w-full">
           <div className="flex flex-col gap-5 lg:w-[30%] w-[90%]">
-            {firstAidKitName.slice(0, 6).map((item) => (
-              <div className="w-full bg-[#FFF] rounded flex justify-between items-center relative lg:p-10 md:p-8 p-5">
+            {firstAidKitName.slice(0, 6).map((item, index) => (
+              <div
+                key={index}
+                className="w-full bg-[#FFF] rounded flex justify-between items-center relative lg:p-10 md:p-8 p-5"
+              >
                 <h2 className="text-[#1E1E1E] text-[24px]">{item.title}</h2>
                 <Image
                   className="lg:w-[100px] lg:h-[100px] w-[70px] h-[70px] rounded-full  absolute -right-10"
@@ -121,8 +123,11 @@ const FirstAidBox = () => {
           <div className="lg:w-[30%] w-[100%] flex justify-end">
             <div className="lg:w-full w-[90%] flex justify-end">
               <div className="flex flex-col items-center gap-5 w-[100%] mx-auto relative">
-                {firstAidKitName.slice(6, 12).map((item) => (
-                  <div className="w-full bg-[#FFF] rounded flex flex-row-reverse justify-between items-center lg:p-10 md:p-8 p-5 relative">
+                {firstAidKitName.slice(6, 12).map((item, index) => (
+                  <div
+                    key={index}
+                    className="w-full bg-[#FFF] rounded flex flex-row-reverse justify-between items-center lg:p-10 md:p-8 p-5 relative"
+                  >
                     <h2 className="text-[#1E1E1E] text-[24px] w-[80%]">
                       {item.title}
                     </h2>

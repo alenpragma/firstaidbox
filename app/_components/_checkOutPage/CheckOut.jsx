@@ -317,6 +317,8 @@ const CheckOut = () => {
               <div className="my-">
                 <h4 className="text-xl font-medium mt-4 p-3 bg-gray-50 rounded-lg">
                   {deliveryOptions[0]?.name}
+                  {` `}
+                  ৳{deliveryOptions[0]?.charge}
                 </h4>
               </div>
 
