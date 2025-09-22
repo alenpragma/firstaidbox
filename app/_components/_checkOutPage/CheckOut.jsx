@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 
 // Images
-import firstairimage from "../../assets/img/p-03.png";
 import bkash from "../../../public/first-aid-img/bkash.png";
 import nagad from "../../../public/first-aid-img/nagad.png";
 import { useGetData } from "../../../lib/fetch/useGetData";
@@ -31,15 +30,10 @@ const decription = [
       "আপনার অর্ডারটি কনফার্ম করতে অগ্রিম ২০০ টাকা আমাদের অফিসিয়াল নগদ পার্সোনাল ০১৮১৬৫৭৫২২৫  এই নাম্বারে সেন্ড মানি করতে হবে। বাকী টাকা প্রোডাক্ট হাতে পাওয়ার পর পরিশোধ করা যাবে।",
     phone: "01816575225",
   },
-  {
-    method: "cod",
-    descrip: "ক্যাশ অন ডেলিভারিতে পেমেন্ট করুন",
-  },
 ];
 
 // Payment options
 const paymentMethods = [
-  { method: "cod", img: codImg },
   { method: "bkash", img: bkash },
   { method: "nagad", img: nagad },
 ];
@@ -47,13 +41,12 @@ const paymentMethods = [
 const CheckOut = () => {
   const [count, setCount] = useState(1);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [delivery, setDelivery] = useState(0);
   const [discountPrice, setDiscountPrice] = useState(0);
   const [tax, setTax] = useState(0);
-  const [payment, setPayment] = useState("cod"); // default COD
+  const [payment, setPayment] = useState("bkash"); // default COD
   const [copyTimeout, setCopyTimeout] = useState(false);
 
-  const { data, isLoading } = useGetData(["products"], `/products`);
+  const { data, isLoading, refetch } = useGetData(["products"], `/products`);
   const { data: deliveryOption, isLoading: deliveryLoading } = useGetData(
     ["delivery"],
     `/delivery-options`
@@ -67,7 +60,11 @@ const CheckOut = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      delivery_option_id: "1",
+    },
+  });
 
   // Update total price when count or product changes
   useEffect(() => {
@@ -108,15 +105,6 @@ const CheckOut = () => {
     }
   };
 
-  // Handle delivery change
-  const handleDeliveryChange = (e) => {
-    const selected = deliveryOptions.find(
-      (opt) => opt.id === Number(e.target.value)
-    );
-    setDelivery(Number(selected?.charge) || 0);
-  };
-
-  // Mutation for creating order
   const { mutate, isPending } = useMutation({
     mutationFn: async (data) => {
       const response = await axiosInstance.post(`/orders`, data);
@@ -124,19 +112,22 @@ const CheckOut = () => {
     },
     onSuccess: (data) => {
       toast.success(data?.message, { position: "bottom-center" });
-      reset();
+      refetch();
+      // reset();
     },
     onError: (err) => {
-      console.log(err);
-      toast.error("Something went wrong", { position: "bottom-center" });
+      console.log(err?.message?.error);
+      toast.error(err?.message?.error || "Something went wrong", {
+        position: "bottom-center",
+      });
     },
   });
 
   const onSubmit = (formData) => {
     const orderData = {
       ...formData,
-      price: totalPrice + tax + delivery - discountPrice,
-      delivery_charge: delivery,
+      price: totalPrice + tax + 0 - discountPrice,
+      delivery_charge: 0,
       payment_method: payment,
       items: [
         {
@@ -158,12 +149,10 @@ const CheckOut = () => {
       alert("All fields are required");
       return;
     }
-
-    console.log("Order Data:", orderData);
     mutate(orderData);
   };
 
-  if (isLoading) {
+  if (isLoading && deliveryLoading) {
     return <p>Loading....</p>;
   }
 
@@ -177,7 +166,7 @@ const CheckOut = () => {
 
           <div className="lg:flex gap-5">
             {/* Left Side */}
-            <div className="flex-1 flex flex-col gap-5">
+            <div className="flex-1 flex flex-col justify-between gap-5">
               {/* Contact Information */}
               <div className="bg-white px-5 py-10 rounded">
                 <h3 className="text-2xl font-bold mb-2">Contact Information</h3>
@@ -201,7 +190,7 @@ const CheckOut = () => {
                   <input
                     type="email"
                     placeholder="Email Address"
-                    {...register("address", { required: true })}
+                    {...register("email", { required: true })}
                     className={`${
                       errors.email ? "border-red-500" : "border-slate-200"
                     } border-2 outline-[#2ACB35] px-2 py-4 rounded`}
@@ -215,11 +204,19 @@ const CheckOut = () => {
                 <div className="grid grid-cols-12 gap-3">
                   <input
                     type="text"
+                    placeholder="Address"
+                    {...register("address", { required: true })}
+                    className={`${
+                      errors.district ? "border-red-500" : "border-slate-200"
+                    } border-2 col-span-12 outline-[#2ACB35] px-2 py-4 rounded`}
+                  />
+                  <input
+                    type="text"
                     placeholder="Your District"
                     {...register("district", { required: true })}
                     className={`${
                       errors.district ? "border-red-500" : "border-slate-200"
-                    } border-2 col-span-12 outline-[#2ACB35] px-2 py-4 rounded`}
+                    } border-2 md:col-span-6 col-span-12 outline-[#2ACB35] px-2 py-4 rounded`}
                   />
                   <input
                     type="text"
@@ -227,47 +224,41 @@ const CheckOut = () => {
                     {...register("thana", { required: true })}
                     className={`${
                       errors.thana ? "border-red-500" : "border-slate-200"
-                    } border-2 outline-[#2ACB35] px-2 py-4 rounded col-span-12`}
+                    } border-2 outline-[#2ACB35] px-2 py-4 rounded   md:col-span-6 col-span-12`}
                   />
                 </div>
               </div>
 
               {/* Delivery Charge */}
-              <div className="bg-white px-5 py-10 rounded mt-5">
-                <h3 className="text-2xl font-bold mb-2">Delivery Area</h3>
+              <div className="bg-white px-5 py-10 rounded">
+                <h3 className="text-2xl font-bold mb-2">Delivery Type</h3>
                 <div className="grid grid-cols-12 gap-3">
-                  {deliveryOptions?.map((item) => (
-                    <label
-                      key={item.id}
-                      className={`${
-                        errors.delivery_option_id
-                          ? "border-red-500"
-                          : "border-slate-200"
-                      } border-2 col-span-12 flex items-center gap-2 px-2 py-4 rounded cursor-pointer`}
-                    >
-                      <input
-                        type="radio"
-                        value={item?.id}
-                        {...register("delivery_option_id", {
-                          required: true,
-                        })}
-                        onChange={handleDeliveryChange}
-                        className="w-5 h-5 accent-[#2ACB35]"
-                      />
-                      <span>
-                        {item?.name} - ৳{item?.charge}
-                      </span>
-                    </label>
-                  ))}
+                  <label
+                    className={` border-2 col-span-12 flex items-center gap-2 px-2 py-4 rounded cursor-pointer`}
+                  >
+                    <input
+                      type="radio"
+                      value="1"
+                      {...register("delivery_option_id", {
+                        required: true,
+                      })}
+                      className="w-5 h-5 accent-[#2ACB35]"
+                    />
+                    <div className=" flex items-center justify-between w-full">
+                      <span>Cash on delivery</span>{" "}
+                      <Image src={codImg} alt="img" width={50} height={50} />
+                    </div>
+                  </label>
                 </div>
               </div>
             </div>
 
             {/* Right Side */}
-            <div className="flex-1 bg-white p-5 rounded flex flex-col gap-5">
+            <div className="flex-1 bg-white p-5 rounded flex flex-col gap-3">
               <h3 className="text-2xl font-bold">Shopping Cart</h3>
               <div className="flex gap-4 items-center">
                 <Image
+                  className="size-20"
                   src={produts?.main_image}
                   alt="product"
                   width={120}
@@ -310,20 +301,23 @@ const CheckOut = () => {
               </div>
               <div className="flex justify-between">
                 <span>Stock</span>
-                <span>{produts?.total_stock}</span>
+                <span>{data?.data?.data[0].total_stock}</span>
               </div>
               <div className="flex justify-between">
                 <span>Delivery Charge</span>
-                <span>৳{delivery}</span>
+                <span>৳{0.0}</span>
               </div>
               <div className="flex justify-between font-bold text-lg">
                 <span>Total</span>
                 <span>
                   {" "}
-                  {Number(
-                    totalPrice + tax + delivery - discountPrice
-                  ).toLocaleString()}
+                  {Number(totalPrice + tax - discountPrice).toLocaleString()}
                 </span>
+              </div>
+              <div className="my-">
+                <h4 className="text-xl font-medium mt-4 p-3 bg-gray-50 rounded-lg">
+                  {deliveryOptions[0]?.name}
+                </h4>
               </div>
 
               {/* Payment Method */}
@@ -352,7 +346,7 @@ const CheckOut = () => {
               </div>
 
               {/* Payment description */}
-              <div className="mt-4 p-4 bg-gray-100 rounded">
+              <div className=" p-4 bg-gray-100 rounded">
                 {decription
                   .filter((item) => item.method === payment)
                   .map((item, index) => (
@@ -389,13 +383,13 @@ const CheckOut = () => {
                     errors.transaction_id
                       ? "border-red-500"
                       : "border-slate-200"
-                  } mb-4`}
+                  } mb-`}
                 />
               )}
 
               <button
                 type="submit"
-                className="bg-green-600 text-white py-3 rounded mt-4 hover:bg-green-700 transition"
+                className="bg-green-600 text-white py-3 rounded mt- hover:bg-green-700 transition"
               >
                 {isPending ? "Processing" : " Confirm Order"}
               </button>
