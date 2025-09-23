@@ -3,6 +3,11 @@ import { Tiro_Bangla } from "next/font/google";
 import "./globals.css";
 import { Provider } from "./_components/_provider/Provider";
 import { GoogleTagManager } from "@next/third-parties/google";
+import Topbar from "./_components/_topbar/Topbar";
+import Nav from "./_components/_nav/Nav";
+import Footer from "./_components/_footer/Footer";
+import { Suspense } from "react";
+import ProgressBar from "./_components/progress/Progressbar";
 
 const tiro = Tiro_Bangla({ subsets: ["latin"], weight: "400" });
 
@@ -47,8 +52,17 @@ export default async function RootLayout({ children }) {
         {settings?.google_tag_manager && (
           <GoogleTagManager gtmId={settings.google_tag_manager} />
         )}
-
-        <Provider>{children}</Provider>
+        <Suspense fallback={null}>
+          <ProgressBar />
+        </Suspense>
+        <Provider>
+          {" "}
+          <div className="">
+            <Topbar />
+          </div>
+          {children}
+          <Footer />
+        </Provider>
 
         {/* Footer scripts from API */}
         {settings?.footer_scripts && (

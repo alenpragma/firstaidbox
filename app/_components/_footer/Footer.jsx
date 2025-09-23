@@ -7,6 +7,7 @@ import Image from "next/image";
 import { IoMdCall } from "react-icons/io";
 import { LuMail } from "react-icons/lu";
 import { FaLocationDot } from "react-icons/fa6";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -16,11 +17,14 @@ const Footer = () => {
           <div className="lg:w-[35%] w-full flex flex-col justify-between gap-8 bg-[#FFF] lg:p-14 md:p-8 p-3 rounded-md">
             <Image className="w-[150px]" src={banner} alt="" />
             <p>
-            ফাস্ট এইড বক্সের যেকোনো পণ্য আলাদাভাবে প্রয়োজন হলে আমাদের শপ থেকে সংগ্রহ করতে পারবেন। 
-
+              ফাস্ট এইড বক্সের যেকোনো পণ্য আলাদাভাবে প্রয়োজন হলে আমাদের শপ থেকে
+              সংগ্রহ করতে পারবেন।
             </p>
             <div className="flex lg:justify-start justify-center items-center w-full">
-              <a href='https://goodmorningaidbd.com/' className="px-5 py-3 bg-[#2ACB35] rounded-md text-[#FFF] w-[220px] font-semibold text-[24px]">
+              <a
+                href="https://goodmorningaidbd.com/"
+                className="px-5 py-3 bg-[#2ACB35] rounded-md text-[#FFF] w-[220px] font-semibold text-[24px]"
+              >
                 Shop Now
               </a>
             </div>
@@ -40,18 +44,21 @@ const Footer = () => {
                 গুরুত্ব পূর্ণ লিঙ্ক সমূহ
               </h2>
               <div className="flex flex-col gap-4">
-                <p className="hover:text-[#2ACB35] duration-300 cursor-pointer">
-                  Terms & Condition
-                </p>
-                <p className="hover:text-[#2ACB35] duration-300 cursor-pointer">
-                  Privacy Policy
-                </p>
-                <p className="hover:text-[#2ACB35] duration-300 cursor-pointer">
-                  Refund Policy
-                </p>
-                <p className="hover:text-[#2ACB35] duration-300 cursor-pointer">
-                  Book Apointment
-                </p>
+                <Link href="/terms-conditions">
+                  <p className="hover:text-[#2ACB35] duration-300 cursor-pointer">
+                    Terms & Condition
+                  </p>
+                </Link>
+                <Link href="/privacy-policy">
+                  <p className="hover:text-[#2ACB35] duration-300 cursor-pointer">
+                    Privacy Policy
+                  </p>
+                </Link>
+                <Link href="/return-refund-policy">
+                  <p className="hover:text-[#2ACB35] duration-300 cursor-pointer">
+                    Return & Refund Policy
+                  </p>
+                </Link>
               </div>
             </div>
             <div className="lg:flex-1 lg:mt-0 mt-5">
@@ -59,8 +66,8 @@ const Footer = () => {
                 আমাদের সম্পর্কে কিছু কথা
               </h2>
               <p>
-              ফাস্ট এইড বক্সের যেকোনো পণ্য আলাদাভাবে প্রয়োজন হলে আমাদের শপ থেকে সংগ্রহ করতে পারবেন। 
-
+                ফাস্ট এইড বক্সের যেকোনো পণ্য আলাদাভাবে প্রয়োজন হলে আমাদের শপ
+                থেকে সংগ্রহ করতে পারবেন।
               </p>
             </div>
           </div>
@@ -91,7 +98,8 @@ const Footer = () => {
       </Container>
       <div className="text-center font-semibold bg-[#777] py-6">
         <p className="text-[14px] text-[#fff]">
-        © 2025 Goodmorning Aid®. All rights reserved. Unauthorized duplication or distribution is prohibited.
+          © 2025 Goodmorning Aid®. All rights reserved. Unauthorized duplication
+          or distribution is prohibited.
         </p>
       </div>
     </div>

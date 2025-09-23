@@ -16,10 +16,7 @@ import FirstAidBoxBenefits from "./_components/_firstAidBoxBenefits/FirstAidBoxB
 const page = () => {
   return (
     <div>
-      <div className="">
-        <Topbar />
-        <Nav />
-      </div>
+      <Nav />
       <Banner />
       <WhyFristAid />
       <FirstAidBox />
@@ -30,7 +27,6 @@ const page = () => {
       <CheckOut />
       <Faq />
       <Email />
-      <Footer />
     </div>
   );
 };
