@@ -7,7 +7,7 @@ export default function TermsAndConditionsPage() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-10">
       <h1 className="text-3xl font-bold mb-6">
-        📜 শর্তাবলী (Terms & Conditions)
+        শর্তাবলী (Terms & Conditions)
       </h1>
 
       <p className="mb-4">
