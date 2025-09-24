@@ -34,13 +34,16 @@ const CheckOut = () => {
     `/payment-methods`
   );
   const { data, isLoading, refetch } = useGetData(["products"], `/products`);
+  const { data: generalSettings, isLoading: generalLoading } = useGetData(
+    ["generalSettings"],
+    `/general-settings`
+  );
   const { data: deliveryOption, isLoading: deliveryLoading } = useGetData(
     ["delivery"],
     `/delivery-options`
   );
 
   const deliveryOptions = deliveryOption?.data;
-  console.log(deliveryOptions?.[0]?.id);
   const product = data?.data?.data[0];
   const paymentId = payment_method?.[0]?.id;
   const [payment, setPayment] = useState();
@@ -313,7 +316,7 @@ const CheckOut = () => {
                   </div>
                   <div>
                     <h4 className="text-xl font-medium mt-4 p-3 bg-gray-50 rounded-lg">
-                      অর্ডারটি কনফার্ম করতে ২০০ টাকা অগ্রিম পরিশোধ করুেন।
+                      {generalSettings?.data?.advance_pay_description}
                     </h4>
                   </div>
 
