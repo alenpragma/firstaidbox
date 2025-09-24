@@ -6,7 +6,7 @@ import React from "react";
 export default function PrivacyPolicyPage() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-10">
-      <h1 className="text-3xl font-bold mb-6">🔒 গোপনীয়তা নীতি (Privacy Policy)</h1>
+      <h1 className="text-3xl font-bold mb-6">গোপনীয়তা নীতি (Privacy Policy)</h1>
 
       <p className="mb-4">
         <strong>FirstAidBox</strong> আপনার গোপনীয়তাকে সর্বোচ্চ গুরুত্ব দেয় এবং সুরক্ষিত রাখতে প্রতিশ্রুতিবদ্ধ।

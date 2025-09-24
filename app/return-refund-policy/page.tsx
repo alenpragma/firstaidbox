@@ -7,7 +7,7 @@ export default function ReturnRefundPolicyPage() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-10">
       <h1 className="text-3xl font-bold mb-6">
-        💳 রিটার্ন ও রিফান্ড পলিসি (Return & Refund Policy)
+        রিটার্ন ও রিফান্ড পলিসি (Return & Refund Policy)
       </h1>
 
       <p className="mb-4">
