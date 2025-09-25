@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 // Images
 import bkash from "../../../public/first-aid-img/bkash.png";
 import nagad from "../../../public/first-aid-img/nagad.png";
+import useAppStore from "../../../lib/store/general";
 
 // COD image
 const codImg =
@@ -28,7 +29,7 @@ const CheckOut = () => {
   const [discountPrice, setDiscountPrice] = useState(0);
   const [tax, setTax] = useState(0);
   const [copyTimeout, setCopyTimeout] = useState(false);
-
+  const { setAppData } = useAppStore();
   const { data: payment_method, isLoading: paymentLoading } = useGetData(
     ["payment_method"],
     `/payment-methods`
@@ -42,6 +43,9 @@ const CheckOut = () => {
     ["delivery"],
     `/delivery-options`
   );
+  useEffect(() => {
+    setAppData(generalSettings?.data);
+  }, [generalSettings]);
 
   const deliveryOptions = deliveryOption?.data;
   const product = data?.data?.data[0];
